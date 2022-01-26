@@ -4,17 +4,14 @@
 <meta charset="utf-8">
 <meta content="Common,Greek,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>CRYSTALS-Dilithium JSON Encoding</title>
+<title>JSON Encoding for Post Quantum Signatures</title>
 <meta content="Michael Prorock" name="author">
 <meta content="Orie Steele" name="author">
-<meta content='
-       This document describes the lattice signature scheme CRYSTALS-Dilithium (CRYDI). 
-The scheme is based on "Fiat-Shamir with Aborts"[Lyu09, Lyu12] utlizing a matrix
-of polynomials for key material, and a vector of polynomials for signatures. 
-The parameter set is strategically chosen such that the signing algorithm is large
-enough to maintain zero-knowledge properties but small enough to prevent forgery of
-signatures. An example implementation and test vectors are provided. 
-    ' name="description">
+<meta content="
+       This document describes several post quantum cryptography (PQC) based
+digital signature schemes and how those signature schemes may be
+exchanged in JSON. 
+    " name="description">
 <meta content="xml2rfc 3.12.0" name="generator">
 <meta content="draft-post-quantum-signatures-00" name="ietf.draft">
 <!-- Generator version information:
@@ -1215,15 +1212,12 @@ li > p:last-of-type {
 </dd>
 </dl>
 </div>
-<h1 id="title">CRYSTALS-Dilithium JSON Encoding</h1>
+<h1 id="title">JSON Encoding for Post Quantum Signatures</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document describes the lattice signature scheme CRYSTALS-Dilithium (CRYDI).<br>
-The scheme is based on "Fiat-Shamir with Aborts"[Lyu09, Lyu12] utlizing a matrix
-of polynomials for key material, and a vector of polynomials for signatures.<br>
-The parameter set is strategically chosen such that the signing algorithm is large
-enough to maintain zero-knowledge properties but small enough to prevent forgery of
-signatures. An example implementation and test vectors are provided.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document describes several post quantum cryptography (PQC) based
+digital signature schemes and how those signature schemes may be
+exchanged in JSON.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <div id="toc">
 <section id="section-toc.1">
@@ -1232,7 +1226,7 @@ signatures. An example implementation and test vectors are provided.<a href="#se
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-crysyals-dilithium" class="xref">CRYSYALS-Dilithium</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-notational-conventions" class="xref">Notational Conventions</a></p>
@@ -1298,32 +1292,44 @@ signatures. An example implementation and test vectors are provided.<a href="#se
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-falcon" class="xref">Falcon</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-appendix" class="xref">Appendix</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-sphincs" class="xref">SPHINCS+</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-appendix" class="xref">Appendix</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-test-vectors" class="xref">Test Vectors</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-test-vectors" class="xref">Test Vectors</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-normative-references" class="xref">Normative References</a></p>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
 </section>
 </div>
-<div id="introduction">
+<div id="crysyals-dilithium">
 <section id="section-1">
-      <h2 id="name-introduction">
-<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      <h2 id="name-crysyals-dilithium">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-crysyals-dilithium" class="section-name selfRef">CRYSYALS-Dilithium</a>
       </h2>
-<p id="section-1-1">CRYSTALS-Dilithium is a Post Quantum approach to digital signatures that is
+<p id="section-1-1">This section of the document describes the lattice signature scheme CRYSTALS-Dilithium (CRYDI).<br>
+The scheme is based on "Fiat-Shamir with Aborts"[Lyu09, Lyu12] utlizing a matrix
+of polynomials for key material, and a vector of polynomials for signatures.<br>
+The parameter set is strategically chosen such that the signing algorithm is large
+enough to maintain zero-knowledge properties but small enough to prevent forgery of
+signatures. An example implementation and test vectors are provided.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">CRYSTALS-Dilithium is a Post Quantum approach to digital signatures that is
 an algorithmic apprach that seeks to ensure key pair and signing properties
 that is a strong implementation meeting Existential Unforgeability under
 Chosen Message Attack (EUF-CMA) properties, while ensuring that the security
@@ -1333,40 +1339,40 @@ specifically Ring Learning with Errors (Ring-LWE). For all security levels
 the only operations required are variants of Keccak and number theoretic
 transforms (NTT) for the ring Zq[X]/(X256+1). This ensures that to increase
 or decrease the security level invovles only the change of parameters rather
-than re-implementation of a related algorithm.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">While based on Ring-LWE, CRYSTALS-Dilithium has less algebraic structure than
+than re-implementation of a related algorithm.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">While based on Ring-LWE, CRYSTALS-Dilithium has less algebraic structure than
 direct Ring-LWE implementations and more closely resembles the unstructured
 lattices used in Learning with Errors (LWE). This brings a theorectical
-protection against future algebraic attacks on Ring-LWE that may be developed.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">CRYSTALS-Dilithium, brings several advantages over other approaches to
-signature suites:<a href="#section-1-3" class="pilcrow">¶</a></p>
+protection against future algebraic attacks on Ring-LWE that may be developed.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">CRYSTALS-Dilithium, brings several advantages over other approaches to
+signature suites:<a href="#section-1-4" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-1-4.1">Post Quantum in nature - use of lattices and other approaches that should
-remain hard problems even when under attack utilizing quantum approaches<a href="#section-1-4.1" class="pilcrow">¶</a>
+<li class="compact" id="section-1-5.1">Post Quantum in nature - use of lattices and other approaches that should
+remain hard problems even when under attack utilizing quantum approaches<a href="#section-1-5.1" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-1-4.2">Simple implementation while maintaing security - a danger in many possible
+        <li class="compact" id="section-1-5.2">Simple implementation while maintaing security - a danger in many possible
 approaches to cryptography is that it may be possible inadvertantly introduce
-errors in code that lead to weakness or decreases in security level<a href="#section-1-4.2" class="pilcrow">¶</a>
+errors in code that lead to weakness or decreases in security level<a href="#section-1-5.2" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-1-4.3">Signature and Public Key Size - compared to other post quantum approaches
+        <li class="compact" id="section-1-5.3">Signature and Public Key Size - compared to other post quantum approaches
 a reasonable key size has been achieved that also preserves desired security
-properties<a href="#section-1-4.3" class="pilcrow">¶</a>
+properties<a href="#section-1-5.3" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-1-4.4">Conservative parameter space - parameterization is utilized for the purposes
+        <li class="compact" id="section-1-5.4">Conservative parameter space - parameterization is utilized for the purposes
 of defining the sizes of marices in use, and thereby the number of polynomials
-described by the key material.<a href="#section-1-4.4" class="pilcrow">¶</a>
+described by the key material.<a href="#section-1-5.4" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-1-4.5">Parameter set adjustment for greater security - increasing this matrix size
-increases the number of polynomials, and thereby the security level<a href="#section-1-4.5" class="pilcrow">¶</a>
+        <li class="compact" id="section-1-5.5">Parameter set adjustment for greater security - increasing this matrix size
+increases the number of polynomials, and thereby the security level<a href="#section-1-5.5" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-1-4.6">Performance and optimization - the approach makes use of well known
+        <li class="compact" id="section-1-5.6">Performance and optimization - the approach makes use of well known
 transforms that can be highly optimized, especially with use of hardware
 optimizations without being so large that it cannot be deployed in embedded
-or IoT environments without some degree of optimization.<a href="#section-1-4.6" class="pilcrow">¶</a>
+or IoT environments without some degree of optimization.<a href="#section-1-5.6" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-1-5">The primary known disadvantage to CRYSTALS-Dilithium is the size of keys and
-signatures, especially as compared to classical approaches for digital signing.<a href="#section-1-5" class="pilcrow">¶</a></p>
+<p id="section-1-6">The primary known disadvantage to CRYSTALS-Dilithium is the size of keys and
+signatures, especially as compared to classical approaches for digital signing.<a href="#section-1-6" class="pilcrow">¶</a></p>
 <div id="notational-conventions">
 <section id="section-1.1">
         <h3 id="name-notational-conventions">
@@ -3116,12 +3122,14 @@ e8P_ijQ7p8Vdz0TTrxUeT3lm8d9shnr2lfJT8ImUjvAA2Xez2Mlp8cBE5awDzT
       <h2 id="name-security-considerations">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
+<p id="section-5-1">The following considerations SHOULD apply to all signature schemes described
+in this specification, unless otherwise noted.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <div id="validating-public-keys">
 <section id="section-5.1">
         <h3 id="name-validating-public-keys">
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-validating-public-keys" class="section-name selfRef">Validating public keys</a>
         </h3>
-<p id="section-5.1-1">All algorithms in Section 2 that operate on public keys require first validating those keys.
+<p id="section-5.1-1">All algorithms in that operate on public keys require first validating those keys.
 For the sign, verify and proof schemes, the use of KeyValidate is REQUIRED.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -3147,7 +3155,8 @@ sampling in implementation.<a href="#section-5.2-2.3" class="pilcrow">¶</a>
 </li>
           <li class="compact" id="section-5.2-2.4">Secrecy of S1 - utmost care must be given to protection of S1 and to prevent information or
 power leakage. As is the case with most proposed lattice based approaches to date, fogery and
-other attacks may succeed through <a href="https://eprint.iacr.org/2018/821.pdf">leakage of S1</a> through side channel mechanisms.<a href="#section-5.2-2.4" class="pilcrow">¶</a>
+other attacks may succeed, for example, with Dilithium through <a href="https://eprint.iacr.org/2018/821.pdf">leakage of S1</a>
+through side channel mechanisms.<a href="#section-5.2-2.4" class="pilcrow">¶</a>
 </li>
         </ul>
 </section>
@@ -3162,186 +3171,202 @@ other attacks may succeed through <a href="https://eprint.iacr.org/2018/821.pdf"
 </div>
 </section>
 </div>
-<div id="iana-considerations">
+<div id="falcon">
 <section id="section-6">
-      <h2 id="name-iana-considerations">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      <h2 id="name-falcon">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-falcon" class="section-name selfRef">Falcon</a>
       </h2>
-<p id="section-6-1">The following has NOT YET been added to the "JSON Web Key Types" registry:<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">TODO<a href="#section-6-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="sphincs">
+<section id="section-7">
+      <h2 id="name-sphincs">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-sphincs" class="section-name selfRef">SPHINCS+</a>
+      </h2>
+<p id="section-7-1">TODO<a href="#section-7-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="iana-considerations">
+<section id="section-8">
+      <h2 id="name-iana-considerations">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      </h2>
+<p id="section-8-1">The following has NOT YET been added to the "JSON Web Key Types" registry:<a href="#section-8-1" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-6-2.1">"kty" Parameter Value: "PQK"<a href="#section-6-2.1" class="pilcrow">¶</a>
+<li class="compact" id="section-8-2.1">"kty" Parameter Value: "PQK"<a href="#section-8-2.1" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-2.2">Key Type Description: Base 64 encoded string key pairs<a href="#section-6-2.2" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-2.2">Key Type Description: Base 64 encoded string key pairs<a href="#section-8-2.2" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-2.3">JOSE Implementation Requirements: Optional<a href="#section-6-2.3" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-2.3">JOSE Implementation Requirements: Optional<a href="#section-8-2.3" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-2.4">Change Controller: IESG<a href="#section-6-2.4" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-2.4">Change Controller: IESG<a href="#section-8-2.4" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-2.5">Specification Document(s): Section 2 of this document (RFC TBD)<a href="#section-6-2.5" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-2.5">Specification Document(s): Section 2 of this document (RFC TBD)<a href="#section-8-2.5" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-6-3">The following has NOT YET been added to the "JSON Web Key Parameters"
-registry:<a href="#section-6-3" class="pilcrow">¶</a></p>
+<p id="section-8-3">The following has NOT YET been added to the "JSON Web Key Parameters"
+registry:<a href="#section-8-3" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-6-4.1">Parameter Name: "pset"<a href="#section-6-4.1" class="pilcrow">¶</a>
+<li class="compact" id="section-8-4.1">Parameter Name: "pset"<a href="#section-8-4.1" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.2">Parameter Description: The parameter set of the crypto system<a href="#section-6-4.2" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.2">Parameter Description: The parameter set of the crypto system<a href="#section-8-4.2" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.3">Parameter Information Class: Public<a href="#section-6-4.3" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.3">Parameter Information Class: Public<a href="#section-8-4.3" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.4">Used with "kty" Value(s): "PQK"<a href="#section-6-4.4" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.4">Used with "kty" Value(s): "PQK"<a href="#section-8-4.4" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.5">Change Controller: IESG<a href="#section-6-4.5" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.5">Change Controller: IESG<a href="#section-8-4.5" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.6">Specification Document(s): Section 2 of this document (RFC TBD)
-<br><a href="#section-6-4.6" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.6">Specification Document(s): Section 2 of this document (RFC TBD)
+<br><a href="#section-8-4.6" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.7">Parameter Name: "xs"<a href="#section-6-4.7" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.7">Parameter Name: "xs"<a href="#section-8-4.7" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.8">Parameter Description: The shake256 of the public key<a href="#section-6-4.8" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.8">Parameter Description: The shake256 of the public key<a href="#section-8-4.8" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.9">Parameter Information Class: Public<a href="#section-6-4.9" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.9">Parameter Information Class: Public<a href="#section-8-4.9" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.10">Used with "kty" Value(s): "PQK"<a href="#section-6-4.10" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.10">Used with "kty" Value(s): "PQK"<a href="#section-8-4.10" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.11">Change Controller: IESG<a href="#section-6-4.11" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.11">Change Controller: IESG<a href="#section-8-4.11" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.12">Specification Document(s): Section 2 of this document (RFC TBD)
-<br><a href="#section-6-4.12" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.12">Specification Document(s): Section 2 of this document (RFC TBD)
+<br><a href="#section-8-4.12" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.13">Parameter Name: "ds"<a href="#section-6-4.13" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.13">Parameter Name: "ds"<a href="#section-8-4.13" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.14">Parameter Description: The shake256 of the private key<a href="#section-6-4.14" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.14">Parameter Description: The shake256 of the private key<a href="#section-8-4.14" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.15">Parameter Information Class: Private<a href="#section-6-4.15" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.15">Parameter Information Class: Private<a href="#section-8-4.15" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.16">Used with "kty" Value(s): "PQK"<a href="#section-6-4.16" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.16">Used with "kty" Value(s): "PQK"<a href="#section-8-4.16" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.17">Change Controller: IESG<a href="#section-6-4.17" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.17">Change Controller: IESG<a href="#section-8-4.17" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.18">Specification Document(s): Section 2 of this document (RFC TBD)
-<br><a href="#section-6-4.18" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.18">Specification Document(s): Section 2 of this document (RFC TBD)
+<br><a href="#section-8-4.18" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.19">Parameter Name: "d"<a href="#section-6-4.19" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.19">Parameter Name: "d"<a href="#section-8-4.19" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.20">Parameter Description: The private key<a href="#section-6-4.20" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.20">Parameter Description: The private key<a href="#section-8-4.20" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.21">Parameter Information Class: Private<a href="#section-6-4.21" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.21">Parameter Information Class: Private<a href="#section-8-4.21" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.22">Used with "kty" Value(s): "PQK"<a href="#section-6-4.22" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.22">Used with "kty" Value(s): "PQK"<a href="#section-8-4.22" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.23">Change Controller: IESG<a href="#section-6-4.23" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.23">Change Controller: IESG<a href="#section-8-4.23" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.24">Specification Document(s): Section 2 of RFC 8037
-<br><a href="#section-6-4.24" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.24">Specification Document(s): Section 2 of RFC 8037
+<br><a href="#section-8-4.24" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.25">Parameter Name: "x"<a href="#section-6-4.25" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.25">Parameter Name: "x"<a href="#section-8-4.25" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.26">Parameter Description: The public key<a href="#section-6-4.26" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.26">Parameter Description: The public key<a href="#section-8-4.26" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.27">Parameter Information Class: Public<a href="#section-6-4.27" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.27">Parameter Information Class: Public<a href="#section-8-4.27" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.28">Used with "kty" Value(s): "PQK"<a href="#section-6-4.28" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.28">Used with "kty" Value(s): "PQK"<a href="#section-8-4.28" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.29">Change Controller: IESG<a href="#section-6-4.29" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.29">Change Controller: IESG<a href="#section-8-4.29" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-4.30">Specification Document(s): Section 2 of RFC 8037<a href="#section-6-4.30" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-4.30">Specification Document(s): Section 2 of RFC 8037<a href="#section-8-4.30" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-6-5">The following has NOT YET been added to the "JSON Web Signature and
-Encryption Algorithms" registry:<a href="#section-6-5" class="pilcrow">¶</a></p>
+<p id="section-8-5">The following has NOT YET been added to the "JSON Web Signature and
+Encryption Algorithms" registry:<a href="#section-8-5" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-6-6.1">Algorithm Name: "CRYDI3"<a href="#section-6-6.1" class="pilcrow">¶</a>
+<li class="compact" id="section-8-6.1">Algorithm Name: "CRYDI3"<a href="#section-8-6.1" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-6.2">Algorithm Description: CRYDI3 signature algorithms<a href="#section-6-6.2" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-6.2">Algorithm Description: CRYDI3 signature algorithms<a href="#section-8-6.2" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-6.3">Algorithm Usage Location(s): "alg"<a href="#section-6-6.3" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-6.3">Algorithm Usage Location(s): "alg"<a href="#section-8-6.3" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-6.4">JOSE Implementation Requirements: Optional<a href="#section-6-6.4" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-6.4">JOSE Implementation Requirements: Optional<a href="#section-8-6.4" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-6.5">Change Controller: IESG<a href="#section-6-6.5" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-6.5">Change Controller: IESG<a href="#section-8-6.5" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-6.6">Specification Document(s): Section 3.1 of this document (RFC TBD)<a href="#section-6-6.6" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-6.6">Specification Document(s): Section 3.1 of this document (RFC TBD)<a href="#section-8-6.6" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-6.7">Algorithm Analysis Documents(s): [RFC TBD]<a href="#section-6-6.7" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-6.7">Algorithm Analysis Documents(s): [RFC TBD]<a href="#section-8-6.7" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-6-7">The following has been added to the "JSON Web Key Lattice"
-registry:<a href="#section-6-7" class="pilcrow">¶</a></p>
+<p id="section-8-7">The following has been added to the "JSON Web Key Lattice"
+registry:<a href="#section-8-7" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-6-8.1">Lattice Name: "CRYDI5"<a href="#section-6-8.1" class="pilcrow">¶</a>
+<li class="compact" id="section-8-8.1">Lattice Name: "CRYDI5"<a href="#section-8-8.1" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.2">Lattice Description: Dilithium 5 signature algorithm key pairs<a href="#section-6-8.2" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.2">Lattice Description: Dilithium 5 signature algorithm key pairs<a href="#section-8-8.2" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.3">JOSE Implementation Requirements: Optional<a href="#section-6-8.3" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.3">JOSE Implementation Requirements: Optional<a href="#section-8-8.3" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.4">Change Controller: IESG<a href="#section-6-8.4" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.4">Change Controller: IESG<a href="#section-8-8.4" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.5">Specification Document(s): Section 3.1 of this document (RFC TBD)
-<br><a href="#section-6-8.5" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.5">Specification Document(s): Section 3.1 of this document (RFC TBD)
+<br><a href="#section-8-8.5" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.6">Lattice Name: "CRYDI3"<a href="#section-6-8.6" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.6">Lattice Name: "CRYDI3"<a href="#section-8-8.6" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.7">Lattice Description: Dilithium 3 signature algorithm key pairs<a href="#section-6-8.7" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.7">Lattice Description: Dilithium 3 signature algorithm key pairs<a href="#section-8-8.7" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.8">JOSE Implementation Requirements: Optional<a href="#section-6-8.8" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.8">JOSE Implementation Requirements: Optional<a href="#section-8-8.8" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.9">Change Controller: IESG<a href="#section-6-8.9" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.9">Change Controller: IESG<a href="#section-8-8.9" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.10">Specification Document(s): Section 3.1 of this document (RFC TBD)
-<br><a href="#section-6-8.10" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.10">Specification Document(s): Section 3.1 of this document (RFC TBD)
+<br><a href="#section-8-8.10" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.11">Lattice Name: "CRYDI2"<a href="#section-6-8.11" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.11">Lattice Name: "CRYDI2"<a href="#section-8-8.11" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.12">Lattice Description: Dilithium 2 signature algorithm key pairs<a href="#section-6-8.12" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.12">Lattice Description: Dilithium 2 signature algorithm key pairs<a href="#section-8-8.12" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.13">JOSE Implementation Requirements: Optional<a href="#section-6-8.13" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.13">JOSE Implementation Requirements: Optional<a href="#section-8-8.13" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.14">Change Controller: IESG<a href="#section-6-8.14" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.14">Change Controller: IESG<a href="#section-8-8.14" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-6-8.15">Specification Document(s): Section 3.1 of this document (RFC TBD)<a href="#section-6-8.15" class="pilcrow">¶</a>
+        <li class="compact" id="section-8-8.15">Specification Document(s): Section 3.1 of this document (RFC TBD)<a href="#section-8-8.15" class="pilcrow">¶</a>
 </li>
       </ul>
 </section>
 </div>
 <div id="appendix">
-<section id="section-7">
+<section id="section-9">
       <h2 id="name-appendix">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-appendix" class="section-name selfRef">Appendix</a>
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-appendix" class="section-name selfRef">Appendix</a>
       </h2>
 <ul class="compact">
-<li class="compact" id="section-7-1.1">JSON Web Signature (JWS) - <a href="https://tools.ietf.org/html/rfc7515">RFC7515</a><a href="#section-7-1.1" class="pilcrow">¶</a>
+<li class="compact" id="section-9-1.1">JSON Web Signature (JWS) - <a href="https://tools.ietf.org/html/rfc7515">RFC7515</a><a href="#section-9-1.1" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-7-1.2">JSON Web Encryption (JWE) - <a href="https://tools.ietf.org/html/rfc7516">RFC7516</a><a href="#section-7-1.2" class="pilcrow">¶</a>
+        <li class="compact" id="section-9-1.2">JSON Web Encryption (JWE) - <a href="https://tools.ietf.org/html/rfc7516">RFC7516</a><a href="#section-9-1.2" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-7-1.3">JSON Web Key (JWK) - <a href="https://tools.ietf.org/html/rfc7517">RFC7517</a><a href="#section-7-1.3" class="pilcrow">¶</a>
+        <li class="compact" id="section-9-1.3">JSON Web Key (JWK) - <a href="https://tools.ietf.org/html/rfc7517">RFC7517</a><a href="#section-9-1.3" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-7-1.4">JSON Web Algorithms (JWA) - <a href="https://tools.ietf.org/html/rfc7518">RFC7518</a><a href="#section-7-1.4" class="pilcrow">¶</a>
+        <li class="compact" id="section-9-1.4">JSON Web Algorithms (JWA) - <a href="https://tools.ietf.org/html/rfc7518">RFC7518</a><a href="#section-9-1.4" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-7-1.5">JSON Web Token (JWT) - <a href="https://tools.ietf.org/html/rfc7519">RFC7519</a><a href="#section-7-1.5" class="pilcrow">¶</a>
+        <li class="compact" id="section-9-1.5">JSON Web Token (JWT) - <a href="https://tools.ietf.org/html/rfc7519">RFC7519</a><a href="#section-9-1.5" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-7-1.6">JSON Web Key Thumbprint - <a href="https://tools.ietf.org/html/rfc7638">RFC7638</a><a href="#section-7-1.6" class="pilcrow">¶</a>
+        <li class="compact" id="section-9-1.6">JSON Web Key Thumbprint - <a href="https://tools.ietf.org/html/rfc7638">RFC7638</a><a href="#section-9-1.6" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-7-1.7">JWS Unencoded Payload Option - <a href="https://tools.ietf.org/html/rfc7797">RFC7797</a><a href="#section-7-1.7" class="pilcrow">¶</a>
+        <li class="compact" id="section-9-1.7">JWS Unencoded Payload Option - <a href="https://tools.ietf.org/html/rfc7797">RFC7797</a><a href="#section-9-1.7" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-7-1.8">CFRG Elliptic Curve ECDH and Signatures - <a href="https://tools.ietf.org/html/rfc8037">RFC8037</a><a href="#section-7-1.8" class="pilcrow">¶</a>
+        <li class="compact" id="section-9-1.8">CFRG Elliptic Curve ECDH and Signatures - <a href="https://tools.ietf.org/html/rfc8037">RFC8037</a><a href="#section-9-1.8" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="section-7-1.9">CRYSTALS-Dilithium - <a href="https://www.pq-crystals.org/dilithium/data/dilithium-specification-round3-20210208.pdf">Dilithium</a><a href="#section-7-1.9" class="pilcrow">¶</a>
+        <li class="compact" id="section-9-1.9">CRYSTALS-Dilithium - <a href="https://www.pq-crystals.org/dilithium/data/dilithium-specification-round3-20210208.pdf">Dilithium</a><a href="#section-9-1.9" class="pilcrow">¶</a>
 </li>
       </ul>
 <div id="test-vectors">
-<section id="section-7.1">
+<section id="section-9.1">
         <h3 id="name-test-vectors">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-test-vectors" class="section-name selfRef">Test Vectors</a>
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-test-vectors" class="section-name selfRef">Test Vectors</a>
         </h3>
-<p id="section-7.1-1">//TODO<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-9.1-1">//TODO<a href="#section-9.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
-<section id="section-8">
+<section id="section-10">
       <h2 id="name-normative-references">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
       </h2>
 <dl class="references">
 <dt id="CRYSTALS-Dilithium">[CRYSTALS-Dilithium]</dt>
