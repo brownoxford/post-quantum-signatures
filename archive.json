@@ -1,0 +1,297 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2022-01-27T18:14:55.786734+00:00",
+  "repo": "mesur-io/post-quantum-signatures",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOGvW1xs5Cd2Ak",
+      "title": "Github Action for IETF I-D",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/1",
+      "state": "CLOSED",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Eventually we probably want to move away from markdown2rfc to a proper github actions scripts.\r\n\r\nSee bbs+ repo for examples.",
+      "createdAt": "2022-01-26T15:01:26Z",
+      "updatedAt": "2022-01-27T15:53:49Z",
+      "closedAt": "2022-01-27T15:53:49Z",
+      "comments": [
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I took a quick look at https://github.com/w3c-ccg/ldp-bbs2020, but didn't see the examples. Am I looking in the right place?",
+          "createdAt": "2022-01-26T15:38:43Z",
+          "updatedAt": "2022-01-26T15:38:43Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "https://github.com/decentralized-identity/bbs-signature (see workflows folder)",
+          "createdAt": "2022-01-26T15:40:11Z",
+          "updatedAt": "2022-01-26T15:40:11Z"
+        },
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I can take this one.",
+          "createdAt": "2022-01-26T15:56:04Z",
+          "updatedAt": "2022-01-26T15:56:04Z"
+        },
+        {
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "this is really really close on #5 - workflow done, some editorial and link items to correct still",
+          "createdAt": "2022-01-27T14:26:02Z",
+          "updatedAt": "2022-01-27T14:26:02Z"
+        },
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closed by #5",
+          "createdAt": "2022-01-27T15:53:49Z",
+          "updatedAt": "2022-01-27T15:53:49Z"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOGvW1xs5CeY8M",
+      "title": "Update Authors List on Spec",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/2",
+      "state": "CLOSED",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Add names and companies.",
+      "createdAt": "2022-01-26T17:11:25Z",
+      "updatedAt": "2022-01-27T14:44:43Z",
+      "closedAt": "2022-01-27T14:44:43Z",
+      "comments": [
+        {
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "this is in as of pr #6 - obviously will add more as they arrive if needed",
+          "createdAt": "2022-01-27T14:44:43Z",
+          "updatedAt": "2022-01-27T14:44:43Z"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOGvW1xs5Cec4T",
+      "title": "Add placeholder sections ",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/3",
+      "state": "CLOSED",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- [x] crystals dilithium\r\n- [x] falcon\r\n- [x] spincs+",
+      "createdAt": "2022-01-26T17:23:48Z",
+      "updatedAt": "2022-01-27T14:25:22Z",
+      "closedAt": "2022-01-27T14:25:22Z",
+      "comments": [
+        {
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "should be corrected now",
+          "createdAt": "2022-01-27T14:25:20Z",
+          "updatedAt": "2022-01-27T14:25:20Z"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOGvW1xs5CedG0",
+      "title": "Update abstract / intro",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/4",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- [x] update title\r\n- [ ] update abstract / intro",
+      "createdAt": "2022-01-26T17:24:25Z",
+      "updatedAt": "2022-01-27T14:45:28Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "this should now be in, but we need a stronger abstract re need for PQC, need for interop, etc",
+          "createdAt": "2022-01-27T14:45:28Z",
+          "updatedAt": "2022-01-27T14:45:28Z"
+        }
+      ]
+    }
+  ],
+  "pulls": [
+    {
+      "number": 5,
+      "id": "PR_kwDOGvW1xs4xob0W",
+      "title": "Implement workflow based on bbs+ repo",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/pull/5",
+      "state": "MERGED",
+      "author": "brownoxford",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This is the first step required for the github workflow based on the `martinthomson/i-d-template` actions. Next will be to move the content of the spec into the skeleton draft document.",
+      "createdAt": "2022-01-26T18:12:24Z",
+      "updatedAt": "2022-01-27T15:43:39Z",
+      "baseRepository": "mesur-io/post-quantum-signatures",
+      "baseRefName": "main",
+      "baseRefOid": "e3968ac99e1ca35d300471e478f74eb782da2110",
+      "headRepository": null,
+      "headRefName": "main",
+      "headRefOid": "0f41b8d4c6d9f77f70ba785c05cfa58a04b8c54f",
+      "closedAt": "2022-01-27T15:43:39Z",
+      "mergedAt": "2022-01-27T15:43:39Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "cf31844f4d38d940224ee3d1ff5863dea2a5429b"
+      },
+      "comments": [
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This addresses #1 ",
+          "createdAt": "2022-01-26T18:13:06Z",
+          "updatedAt": "2022-01-26T18:13:06Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGvW1xs4zgjkQ",
+          "commit": {
+            "abbreviatedOid": "aa75869"
+          },
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "approved, but I unfortunately created conflicts for you - will avoid that in the future",
+          "createdAt": "2022-01-26T22:16:58Z",
+          "updatedAt": "2022-01-26T22:16:58Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGvW1xs4zjeYT",
+          "commit": {
+            "abbreviatedOid": "11fb9be"
+          },
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "see notes around making sure links to github go to the mesur-io repo as well as readme title - otherwise i think good",
+          "createdAt": "2022-01-27T14:22:05Z",
+          "updatedAt": "2022-01-27T14:24:23Z",
+          "comments": [
+            {
+              "originalPosition": 2,
+              "body": "this should be updated to JSON Encoding for Post Quantum Signatures",
+              "createdAt": "2022-01-27T14:22:06Z",
+              "updatedAt": "2022-01-27T14:24:23Z"
+            },
+            {
+              "originalPosition": 8,
+              "body": "this is pointing at `brownoxford` rather than `mesur-io` as are several other links out",
+              "createdAt": "2022-01-27T14:22:52Z",
+              "updatedAt": "2022-01-27T14:24:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGvW1xs4zj8g7",
+          "commit": {
+            "abbreviatedOid": "0f41b8d"
+          },
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-01-27T15:43:33Z",
+          "updatedAt": "2022-01-27T15:43:33Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOGvW1xs4xribq",
+      "title": "chore: initial authors update",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/pull/6",
+      "state": "MERGED",
+      "author": "mprorock",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-01-27T14:41:47Z",
+      "updatedAt": "2022-01-27T14:44:12Z",
+      "baseRepository": "mesur-io/post-quantum-signatures",
+      "baseRefName": "main",
+      "baseRefOid": "ee6066acb32ff1207c97321800bc9f69e0bf2f44",
+      "headRepository": "mesur-io/post-quantum-signatures",
+      "headRefName": "feature/authors-update",
+      "headRefOid": "335606f49cadb620ef5c27c65f606173d59e9db6",
+      "closedAt": "2022-01-27T14:44:12Z",
+      "mergedAt": "2022-01-27T14:44:12Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "e3968ac99e1ca35d300471e478f74eb782da2110"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
