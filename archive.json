@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-01-27T18:14:55.786734+00:00",
+  "timestamp": "2022-01-30T00:37:32.761567+00:00",
   "repo": "mesur-io/post-quantum-signatures",
   "labels": [
     {
@@ -47,6 +47,11 @@
       "name": "wontfix",
       "description": "This will not be worked on",
       "color": "ffffff"
+    },
+    {
+      "name": "pre-ietf-submisson",
+      "description": "Work that must be done before submitting to IETF",
+      "color": "F425A7"
     }
   ],
   "issues": [
@@ -153,16 +158,18 @@
     {
       "number": 4,
       "id": "I_kwDOGvW1xs5CedG0",
-      "title": "Update abstract / intro",
+      "title": "Abstract must address all registered key and signatures",
       "url": "https://github.com/mesur-io/post-quantum-signatures/issues/4",
       "state": "OPEN",
       "author": "OR13",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "OR13"
+      ],
       "labels": [],
-      "body": "- [x] update title\r\n- [ ] update abstract / intro",
+      "body": "Basing our abstract off of https://datatracker.ietf.org/doc/html/rfc8812\r\n\r\nWe should simply acknowledge the registrations by name, and avoid any other langauge.",
       "createdAt": "2022-01-26T17:24:25Z",
-      "updatedAt": "2022-01-27T14:45:28Z",
+      "updatedAt": "2022-01-29T16:53:36Z",
       "closedAt": null,
       "comments": [
         {
@@ -171,6 +178,153 @@
           "body": "this should now be in, but we need a stronger abstract re need for PQC, need for interop, etc",
           "createdAt": "2022-01-27T14:45:28Z",
           "updatedAt": "2022-01-27T14:45:28Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@mprorock I think we actually don't want to get real verbose here... I think that the security considerations section is probably a better place to address interop... or another section of the spec...",
+          "createdAt": "2022-01-29T16:53:36Z",
+          "updatedAt": "2022-01-29T16:53:36Z"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "I_kwDOGvW1xs5CnrBR",
+      "title": "Do we want to rename this repo?",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/7",
+      "state": "OPEN",
+      "author": "brownoxford",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "question"
+      ],
+      "body": "It looks like we have settled on `post-quantum-jose` for the draft name, should we modify the repo name to match?",
+      "createdAt": "2022-01-28T18:08:58Z",
+      "updatedAt": "2022-01-29T16:31:08Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "i suggest keeping the name as is... and leaving the door open for COSE.",
+          "createdAt": "2022-01-29T16:03:57Z",
+          "updatedAt": "2022-01-29T16:03:57Z"
+        },
+        {
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "COSE is definitely also applicable\r\n\r\nWe should also be considering this as a potential home as the WG shakes out https://mailarchive.ietf.org/arch/msg/saag/sS9Qok2fh9lktcsQp0axEJnh_pk/\r\n\r\nsee also:\r\nhttps://github.com/rdanyliw/ietf-pq-maintenance/blob/main/pqm-charter.md",
+          "createdAt": "2022-01-29T16:10:24Z",
+          "updatedAt": "2022-01-29T16:10:24Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I suggest we drop jose from all the file names.",
+          "createdAt": "2022-01-29T16:31:08Z",
+          "updatedAt": "2022-01-29T16:31:08Z"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "I_kwDOGvW1xs5CpzzA",
+      "title": "Flag draft as an update to RFC7518 (JWA).",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/8",
+      "state": "OPEN",
+      "author": "mprorock",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "@OR13 ",
+      "createdAt": "2022-01-29T16:04:02Z",
+      "updatedAt": "2022-01-29T16:55:43Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "hmm... I think you mean RFC7515, which we already cite.... which in turn refers to RFC7518... not sure how we should treat them both.",
+          "createdAt": "2022-01-29T16:55:42Z",
+          "updatedAt": "2022-01-29T16:55:42Z"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "I_kwDOGvW1xs5Cpz2Q",
+      "title": "Update Editors, Authors and Contributors",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/9",
+      "state": "OPEN",
+      "author": "mprorock",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [
+        "pre-ietf-submisson"
+      ],
+      "body": "- [ ] spec has no more than 5 editors\r\n- [ ] spec editors contact information has been confirmed\r\n- [ ] additional contributors added to the acknowledgement section\r\n\r\n@OR13 can you break apart editors on the top line from the additional contributors per some feedback from IETF folks",
+      "createdAt": "2022-01-29T16:04:56Z",
+      "updatedAt": "2022-01-29T16:30:44Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "See [guidelines](https://www.ietf.org/standards/ids/guidelines/).\r\n\r\nIdeally we do some analysis of the spec and come up with a data driven way to assign these roles, then adjust based on feedback that was given verbally and other factors.",
+          "createdAt": "2022-01-29T16:26:58Z",
+          "updatedAt": "2022-01-29T16:30:28Z"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "I_kwDOGvW1xs5Cp0AT",
+      "title": "Do we want one spec or several?",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/10",
+      "state": "OPEN",
+      "author": "mprorock",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [
+        "question"
+      ],
+      "body": "Open question for discussion:\r\n1) Single spec covering PQC signatures and each scheme as a section (this is totally fine for incubation independent of where things shake out)\r\n2) One spec per scheme\r\n3) one spec for broad PQC usage with JOSE and then one spec per scheme that reference that spec",
+      "createdAt": "2022-01-29T16:07:32Z",
+      "updatedAt": "2022-01-29T17:02:15Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "For sure to start, we should assume 1 spec... and have it cover key and signature serializations in JSON and CBOR.\r\n\r\nI don't think we get a big benefit for splitting CBOR and JSON up, and there is precedent for doing them at the same time... see https://datatracker.ietf.org/doc/html/rfc8812.\r\n\r\nI also don't think we get a huge benefit from splitting by crypto system... although I think that could be argued against.\r\n\r\nIn general, we are defining serializations for lattice and hash based schemes... splitting along those lines would make sense... IF each list was very long and needed a lot of special treatment... but since we are really only looking at serializations I don't think that will be the case... we are not here to define crypto, only serializations of defined crypto.\r\n\r\n",
+          "createdAt": "2022-01-29T17:00:15Z",
+          "updatedAt": "2022-01-29T17:00:40Z"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "I_kwDOGvW1xs5Cp4s1",
+      "title": "Update spec development instructions",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/12",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The readme instructions should assist a contributor in setting up, building and previewing local spec changes.\r\n\r\nThe instructions should work in all operating systems, or list the only supported OS.\r\n\r\n",
+      "createdAt": "2022-01-29T17:09:20Z",
+      "updatedAt": "2022-01-29T17:10:18Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Currently getting this error in macOS:\r\n\r\n```\r\n\u276f make\r\ncat draft-post-quantum-jose.md  | mmark | lib/add-note.py | xml2rfc -q -s 'Setting consensus=\"true\" for IETF STD document' --rfc-base-url https://www.rfc-editor.org/rfc/ --id-base-url https://datatracker.ietf.org/doc/html/ --cache=/Users/orie/.cache/xml2rfc --v2v3 /dev/stdin -o /dev/stdout >draft-post-quantum-jose.xml\r\nbash: mmark: command not found\r\nError: Unable to parse the XML document: /dev/stdin\r\nmake: *** [draft-post-quantum-jose.xml] Error 1\r\nmake: *** Deleting file `draft-post-quantum-jose.xml'\r\n```",
+          "createdAt": "2022-01-29T17:09:50Z",
+          "updatedAt": "2022-01-29T17:10:18Z"
         }
       ]
     }
@@ -290,6 +444,32 @@
       "mergeCommit": {
         "oid": "e3968ac99e1ca35d300471e478f74eb782da2110"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDOGvW1xs4xx6rM",
+      "title": "Update abstract",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/pull/11",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Compare to https://datatracker.ietf.org/doc/html/rfc8812\r\n\r\nTheir abstract is very direct... I suggest we follow suite and avoid adding anything other that the `kty` and `alg` names to the abstract.\r\n\r\naddresses https://github.com/mesur-io/post-quantum-signatures/issues/4",
+      "createdAt": "2022-01-29T16:47:56Z",
+      "updatedAt": "2022-01-29T17:12:23Z",
+      "baseRepository": "mesur-io/post-quantum-signatures",
+      "baseRefName": "main",
+      "baseRefOid": "cf31844f4d38d940224ee3d1ff5863dea2a5429b",
+      "headRepository": "mesur-io/post-quantum-signatures",
+      "headRefName": "update-intro",
+      "headRefOid": "dbcc86291ca52b75de9ceafb733bd6677a74e874",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
