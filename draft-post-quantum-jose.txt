@@ -271,9 +271,9 @@ Table of Contents
 
    Per section 5.1 of [CRYSTALS-Dilithium]:
 
-  The public key, containing ρ and t1, is stored as the concatenation of
-  the bit-packed representations of ρ and t1 in this order.
-  Therefore, it has a size of 32 + 288 kbytes.
+   |  The public key, containing &#961; and t1, is stored as the
+   |  concatenation of the bit-packed representations of &#961; and t1
+   |  in this order.  Therefore, it has a size of 32 + 288 kbytes.
 
    The public key is represented as x and encoded using base64url
    encoding as described in [RFC7517].
@@ -303,11 +303,13 @@ Table of Contents
 
    Per section 5.1 of [CRYSTALS-Dilithium]:
 
-The secret key contains ρ,K,tr,s1,s2 and t0 and is also stored as
-a bit-packed representation of these quantities in the given order.
-Consequently, a secret key requires 64 + 48 + 32((k+l)·dlog (2η+ 1)e+ 14k)bytes.
-For the weak, medium and high security level this is equal to 112 + 576k+ 128lbytes.
-With the very high security parameters one needs 112 + 544k+ 96l= 3856bytes.
+   |  The secret key contains &#961;,K,tr,s1,s2 and t0 and is also
+   |  stored as a bit-packed representation of these quantities in the
+   |  given order.  Consequently, a secret key requires 64 + 48 +
+   |  32((k+l)&#183;dlog (2&#951;+ 1)e+ 14k)bytes.  For the weak, medium
+   |  and high security level this is equal to 112 + 576k+ 128lbytes.
+   |  With the very high security parameters one needs 112 + 544k+ 96l=
+   |  3856bytes.
 
    The private key is represented as d and encoded using base64url
    encoding as described in [RFC7517].

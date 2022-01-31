@@ -2,7 +2,7 @@
 <html lang="en" class="Internet-Draft">
 <head>
 <meta charset="utf-8">
-<meta content="Common,Greek,Latin" name="scripts">
+<meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
 <title>JSON Encoding for Post Quantum Signatures</title>
 <meta content="Michael Prorock" name="author">
@@ -2789,12 +2789,9 @@ fields are included in the hash input in lexicographic order:
 <a href="#section-3.4.1.1" class="section-number selfRef">3.4.1.1. </a><a href="#name-public-key" class="section-name selfRef">Public Key</a>
             </h5>
 <p id="section-3.4.1.1-1">Per section 5.1 of <span>[<a href="#CRYSTALS-Dilithium" class="xref">CRYSTALS-Dilithium</a>]</span>:<a href="#section-3.4.1.1-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3.4.1.1-2">
-<pre>The public key, containing ρ and t1, is stored as the concatenation of
-the bit-packed representations of ρ and t1 in this order.
-Therefore, it has a size of 32 + 288 kbytes.
-</pre><a href="#section-3.4.1.1-2" class="pilcrow">¶</a>
-</div>
+<blockquote id="section-3.4.1.1-2">
+              <p id="section-3.4.1.1-2.1">The public key, containing &amp;#961; and t1, is stored as the concatenation of the bit-packed representations of &amp;#961; and t1 in this order. Therefore, it has a size of 32 + 288 kbytes.<a href="#section-3.4.1.1-2.1" class="pilcrow">¶</a></p>
+</blockquote>
 <p id="section-3.4.1.1-3">The public key is represented as <code>x</code> and encoded using base64url encoding as described in <span>[<a href="#RFC7517" class="xref">RFC7517</a>]</span>.<a href="#section-3.4.1.1-3" class="pilcrow">¶</a></p>
 <p id="section-3.4.1.1-4">Example public key using only required fields:<a href="#section-3.4.1.1-4" class="pilcrow">¶</a></p>
 <div id="section-3.4.1.1-5">
@@ -2827,14 +2824,9 @@ Therefore, it has a size of 32 + 288 kbytes.
 <a href="#section-3.4.1.2" class="section-number selfRef">3.4.1.2. </a><a href="#name-private-key" class="section-name selfRef">Private Key</a>
             </h5>
 <p id="section-3.4.1.2-1">Per section 5.1 of <span>[<a href="#CRYSTALS-Dilithium" class="xref">CRYSTALS-Dilithium</a>]</span>:<a href="#section-3.4.1.2-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3.4.1.2-2">
-<pre>The secret key contains ρ,K,tr,s1,s2 and t0 and is also stored as
-a bit-packed representation of these quantities in the given order.
-Consequently, a secret key requires 64 + 48 + 32((k+l)·dlog (2η+ 1)e+ 14k)bytes.
-For the weak, medium and high security level this is equal to 112 + 576k+ 128lbytes.
-With the very high security parameters one needs 112 + 544k+ 96l= 3856bytes.
-</pre><a href="#section-3.4.1.2-2" class="pilcrow">¶</a>
-</div>
+<blockquote id="section-3.4.1.2-2">
+              <p id="section-3.4.1.2-2.1">The secret key contains &amp;#961;,K,tr,s1,s2 and t0 and is also stored as a bit-packed representation of these quantities in the given order. Consequently, a secret key requires 64 + 48 + 32((k+l)&amp;#183;dlog (2&amp;#951;+ 1)e+ 14k)bytes. For the weak, medium and high security level this is equal to 112 + 576k+ 128lbytes. With the very high security parameters one needs 112 + 544k+ 96l= 3856bytes.<a href="#section-3.4.1.2-2.1" class="pilcrow">¶</a></p>
+</blockquote>
 <p id="section-3.4.1.2-3">The private key is represented as <code>d</code> and encoded using base64url encoding as described in <span>[<a href="#RFC7517" class="xref">RFC7517</a>]</span>.<a href="#section-3.4.1.2-3" class="pilcrow">¶</a></p>
 <p id="section-3.4.1.2-4">Example private key using only required fields:<a href="#section-3.4.1.2-4" class="pilcrow">¶</a></p>
 <div id="section-3.4.1.2-5">
