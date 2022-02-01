@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-01-30T00:37:32.761567+00:00",
+  "timestamp": "2022-02-01T00:38:58.093877+00:00",
   "repo": "mesur-io/post-quantum-signatures",
   "labels": [
     {
@@ -202,7 +202,7 @@
       ],
       "body": "It looks like we have settled on `post-quantum-jose` for the draft name, should we modify the repo name to match?",
       "createdAt": "2022-01-28T18:08:58Z",
-      "updatedAt": "2022-01-29T16:31:08Z",
+      "updatedAt": "2022-01-31T19:29:12Z",
       "closedAt": null,
       "comments": [
         {
@@ -225,6 +225,27 @@
           "body": "I suggest we drop jose from all the file names.",
           "createdAt": "2022-01-29T16:31:08Z",
           "updatedAt": "2022-01-29T16:31:08Z"
+        },
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> \r\n\r\nWere you thinking we should go back to `post-quantum-signatures`, or something different?",
+          "createdAt": "2022-01-31T14:02:51Z",
+          "updatedAt": "2022-01-31T14:02:51Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "the repo name is fine... I would build a single `draft-post-quantum-signatures` spec in it for now.",
+          "createdAt": "2022-01-31T17:00:54Z",
+          "updatedAt": "2022-01-31T17:00:54Z"
+        },
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Sounds good - will put in a PR when other outstanding PRs for the draft body have been resolved.",
+          "createdAt": "2022-01-31T19:29:11Z",
+          "updatedAt": "2022-01-31T19:29:11Z"
         }
       ]
     },
@@ -292,7 +313,7 @@
       ],
       "body": "Open question for discussion:\r\n1) Single spec covering PQC signatures and each scheme as a section (this is totally fine for incubation independent of where things shake out)\r\n2) One spec per scheme\r\n3) one spec for broad PQC usage with JOSE and then one spec per scheme that reference that spec",
       "createdAt": "2022-01-29T16:07:32Z",
-      "updatedAt": "2022-01-29T17:02:15Z",
+      "updatedAt": "2022-01-31T14:04:00Z",
       "closedAt": null,
       "comments": [
         {
@@ -301,6 +322,13 @@
           "body": "For sure to start, we should assume 1 spec... and have it cover key and signature serializations in JSON and CBOR.\r\n\r\nI don't think we get a big benefit for splitting CBOR and JSON up, and there is precedent for doing them at the same time... see https://datatracker.ietf.org/doc/html/rfc8812.\r\n\r\nI also don't think we get a huge benefit from splitting by crypto system... although I think that could be argued against.\r\n\r\nIn general, we are defining serializations for lattice and hash based schemes... splitting along those lines would make sense... IF each list was very long and needed a lot of special treatment... but since we are really only looking at serializations I don't think that will be the case... we are not here to define crypto, only serializations of defined crypto.\r\n\r\n",
           "createdAt": "2022-01-29T17:00:15Z",
           "updatedAt": "2022-01-29T17:00:40Z"
+        },
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I did a quick test and, should we decide to go that route, the build framework will work on any and all `draft*.md` files in the repo.",
+          "createdAt": "2022-01-31T14:04:00Z",
+          "updatedAt": "2022-01-31T14:04:00Z"
         }
       ]
     },
@@ -316,7 +344,7 @@
       "labels": [],
       "body": "The readme instructions should assist a contributor in setting up, building and previewing local spec changes.\r\n\r\nThe instructions should work in all operating systems, or list the only supported OS.\r\n\r\n",
       "createdAt": "2022-01-29T17:09:20Z",
-      "updatedAt": "2022-01-29T17:10:18Z",
+      "updatedAt": "2022-01-31T20:11:03Z",
       "closedAt": null,
       "comments": [
         {
@@ -325,8 +353,93 @@
           "body": "Currently getting this error in macOS:\r\n\r\n```\r\n\u276f make\r\ncat draft-post-quantum-jose.md  | mmark | lib/add-note.py | xml2rfc -q -s 'Setting consensus=\"true\" for IETF STD document' --rfc-base-url https://www.rfc-editor.org/rfc/ --id-base-url https://datatracker.ietf.org/doc/html/ --cache=/Users/orie/.cache/xml2rfc --v2v3 /dev/stdin -o /dev/stdout >draft-post-quantum-jose.xml\r\nbash: mmark: command not found\r\nError: Unable to parse the XML document: /dev/stdin\r\nmake: *** [draft-post-quantum-jose.xml] Error 1\r\nmake: *** Deleting file `draft-post-quantum-jose.xml'\r\n```",
           "createdAt": "2022-01-29T17:09:50Z",
           "updatedAt": "2022-01-29T17:10:18Z"
+        },
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@OR13 The last line of the readme currently reads\r\n\r\n> Command line usage requires that you have the necessary software installed. [See the instructions](https://github.com/martinthomson/i-d-template/blob/main/doc/SETUP.md).\r\n\r\nThe linked instructions appear to only be for *nix-like operating systems (no Windows). Should we import those into this repo, or somehow make this line stand out more?",
+          "createdAt": "2022-01-31T12:46:28Z",
+          "updatedAt": "2022-01-31T12:46:28Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@brownoxford I just tried to run the commands in the readme and they failed on macOS.... they worked for me before (when we used docker).\r\n\r\nI need the ability to preview changes locally to contribute.\r\n\r\nAll commands needed should be documented in the README.",
+          "createdAt": "2022-01-31T18:27:27Z",
+          "updatedAt": "2022-01-31T18:27:41Z"
+        },
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Per our offline conversation, I will modify `README.md` to include basic instructions for building `txt` and `html` versions of the draft spec for local review by installing the latest `mmark` and `xml2rfc` on Linux and OSX and also by running the relevant docker commands.",
+          "createdAt": "2022-01-31T20:11:03Z",
+          "updatedAt": "2022-01-31T20:11:03Z"
         }
       ]
+    },
+    {
+      "number": 13,
+      "id": "I_kwDOGvW1xs5CunHf",
+      "title": "Build Error: Incomplete or empty [seriesInfo] in title block, resulting XML will fail to parse",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/13",
+      "state": "CLOSED",
+      "author": "brownoxford",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "It looks like `mmark` issues an error if `stream` is missing from the `[seriesInfo]` block.",
+      "createdAt": "2022-01-31T14:38:47Z",
+      "updatedAt": "2022-01-31T20:15:34Z",
+      "closedAt": "2022-01-31T20:15:34Z",
+      "comments": []
+    },
+    {
+      "number": 15,
+      "id": "I_kwDOGvW1xs5Curjq",
+      "title": "Embedded SVGs are problematic",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/15",
+      "state": "OPEN",
+      "author": "brownoxford",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Embedded SVGs cause the build process to produce many errors, and omit the math entirely from TXT versions of the draft:\r\n\r\n```\r\n3.3.1.  Generate\r\n\r\n   (Artwork only available as svg: spec/key-gen.svg)\r\n\r\n                                  Figure 1\r\n```\r\n\r\nCan we refactor this into text format? I took a look at some other specs, e.g., [bbs+](https://identity.foundation/bbs-signature/draft-bbs-signatures.html), and they seem to use text for the math (doesn't look great though).",
+      "createdAt": "2022-01-31T14:52:45Z",
+      "updatedAt": "2022-01-31T14:52:45Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 16,
+      "id": "I_kwDOGvW1xs5Cu20i",
+      "title": "References to CRYSTALS-Dilithium cause \"Too Wide\" warnings",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/16",
+      "state": "CLOSED",
+      "author": "brownoxford",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "These references are currently included as untyped code blocks which `mmark` converts into `<artwork>` elements.  Currently, this is resulting in a number of warnings regarding elements and sections being \"too wide\" by `xml2rfc`:\r\n\r\n```\r\n/Users/cabernet/Documents/src/github.com/brownoxford/post-quantum-signatures.git/draft-post-quantum-jose.xml(256): Warning: Artwork too wide, reducing indentation from 3 to 2\r\n/Users/cabernet/Documents/src/github.com/brownoxford/post-quantum-signatures.git/draft-post-quantum-jose.xml(287): Warning: Artwork too wide, reducing indentation from 3 to 0\r\n/Users/cabernet/Documents/src/github.com/brownoxford/post-quantum-signatures.git/draft-post-quantum-jose.xml(284): Warning: Section too wide, reducing indentation from 0 to 0\r\n/Users/cabernet/Documents/src/github.com/brownoxford/post-quantum-signatures.git/draft-post-quantum-jose.xml(178): Warning: Section too wide, reducing indentation from 0 to 0\r\n/Users/cabernet/Documents/src/github.com/brownoxford/post-quantum-signatures.git/draft-post-quantum-jose.xml(175): Warning: Section too wide, reducing indentation from 0 to 0\r\n/Users/cabernet/Documents/src/github.com/brownoxford/post-quantum-signatures.git/draft-post-quantum-jose.xml(66): Warning: Section too wide, reducing indentation from 0 to 0\r\n/Users/cabernet/Documents/src/github.com/brownoxford/post-quantum-signatures.git/draft-post-quantum-jose.xml(39): Warning: Middle too wide, reducing indentation from 0 to 0\r\n```\r\n\r\nThis can be easily solved by converting these references to blockquotes instead of code blocks, which actually seems more appropriate in this case.",
+      "createdAt": "2022-01-31T15:27:44Z",
+      "updatedAt": "2022-01-31T20:15:47Z",
+      "closedAt": "2022-01-31T20:15:47Z",
+      "comments": []
+    },
+    {
+      "number": 18,
+      "id": "I_kwDOGvW1xs5CvDZB",
+      "title": "JSON code samples contain lines longer than 69 chars",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/18",
+      "state": "CLOSED",
+      "author": "brownoxford",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "`xml2rfc` complains about lines longer than 69 characters. This can be fixed by wrapping lines as described in [RFC 8792](https://datatracker.ietf.org/doc/html/rfc8792).",
+      "createdAt": "2022-01-31T16:11:16Z",
+      "updatedAt": "2022-01-31T20:16:23Z",
+      "closedAt": "2022-01-31T20:16:23Z",
+      "comments": []
     }
   ],
   "pulls": [
@@ -452,26 +565,227 @@
       "id": "PR_kwDOGvW1xs4xx6rM",
       "title": "Update abstract",
       "url": "https://github.com/mesur-io/post-quantum-signatures/pull/11",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "OR13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Compare to https://datatracker.ietf.org/doc/html/rfc8812\r\n\r\nTheir abstract is very direct... I suggest we follow suite and avoid adding anything other that the `kty` and `alg` names to the abstract.\r\n\r\naddresses https://github.com/mesur-io/post-quantum-signatures/issues/4",
       "createdAt": "2022-01-29T16:47:56Z",
-      "updatedAt": "2022-01-29T17:12:23Z",
+      "updatedAt": "2022-01-31T20:14:55Z",
       "baseRepository": "mesur-io/post-quantum-signatures",
       "baseRefName": "main",
       "baseRefOid": "cf31844f4d38d940224ee3d1ff5863dea2a5429b",
       "headRepository": "mesur-io/post-quantum-signatures",
       "headRefName": "update-intro",
       "headRefOid": "dbcc86291ca52b75de9ceafb733bd6677a74e874",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2022-01-31T20:14:55Z",
+      "mergedAt": "2022-01-31T20:14:55Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "63c070f946b19001a7f861243d4a0b42a9f4fa2e"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOGvW1xs4zuZIz",
+          "commit": {
+            "abbreviatedOid": "dbcc862"
+          },
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Following the update to use the standard IETF draft functionality, this is no longer correct. I will review today and make appropriate suggestions.\r\n\r\nNB - this comment applies to the README.md change",
+          "createdAt": "2022-01-31T12:49:32Z",
+          "updatedAt": "2022-01-31T12:50:26Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGvW1xs4zus74",
+          "commit": {
+            "abbreviatedOid": "dbcc862"
+          },
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-31T13:59:51Z",
+          "updatedAt": "2022-01-31T13:59:52Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "I think this entire may be unnecessary - after running `make`, both HTML and Text format versions of the draft spec will be created in the root folder alongside the Markdown version.",
+              "createdAt": "2022-01-31T13:59:51Z",
+              "updatedAt": "2022-01-31T14:00:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGvW1xs4zwkRh",
+          "commit": {
+            "abbreviatedOid": "dbcc862"
+          },
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-01-31T20:14:48Z",
+          "updatedAt": "2022-01-31T20:14:48Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDOGvW1xs4x1660",
+      "title": "fix: add \"stream\" to \"seriesInfo\" block to prevent mmark error",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/pull/14",
+      "state": "MERGED",
+      "author": "brownoxford",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Prevents \"Incomplete or empty [seriesInfo] in title block, resulting XML will fail to parse\" error\r\n\r\nFIX #13",
+      "createdAt": "2022-01-31T14:44:19Z",
+      "updatedAt": "2022-01-31T20:15:34Z",
+      "baseRepository": "mesur-io/post-quantum-signatures",
+      "baseRefName": "main",
+      "baseRefOid": "cf31844f4d38d940224ee3d1ff5863dea2a5429b",
+      "headRepository": "brownoxford/post-quantum-signatures",
+      "headRefName": "main",
+      "headRefOid": "a78bf407c098da786067b05baf6181f2b0cabcd4",
+      "closedAt": "2022-01-31T20:15:34Z",
+      "mergedAt": "2022-01-31T20:15:34Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "6bb686df8a8cb524293cfa1a5f64c1b9524cf3f7"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGvW1xs4zwj7l",
+          "commit": {
+            "abbreviatedOid": "a78bf40"
+          },
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-01-31T20:13:21Z",
+          "updatedAt": "2022-01-31T20:13:21Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGvW1xs4zwkGz",
+          "commit": {
+            "abbreviatedOid": "a78bf40"
+          },
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-01-31T20:14:05Z",
+          "updatedAt": "2022-01-31T20:14:05Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGvW1xs4zwkaK",
+          "commit": {
+            "abbreviatedOid": "a78bf40"
+          },
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-01-31T20:15:25Z",
+          "updatedAt": "2022-01-31T20:15:25Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "id": "PR_kwDOGvW1xs4x2H3_",
+      "title": "fix: convert code blocks to blockquotes for references to CRYSTALS-Di\u2026",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/pull/17",
+      "state": "MERGED",
+      "author": "brownoxford",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "\u2026lithium spec\r\n\r\nFIX: #16",
+      "createdAt": "2022-01-31T15:30:26Z",
+      "updatedAt": "2022-01-31T20:15:48Z",
+      "baseRepository": "mesur-io/post-quantum-signatures",
+      "baseRefName": "main",
+      "baseRefOid": "cf31844f4d38d940224ee3d1ff5863dea2a5429b",
+      "headRepository": "brownoxford/post-quantum-signatures",
+      "headRefName": "fix/16",
+      "headRefOid": "e7f05631b17e321757d5d0df8cc7cd05a6c3c948",
+      "closedAt": "2022-01-31T20:15:47Z",
+      "mergedAt": "2022-01-31T20:15:47Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "c6525fd7aef367327ef3bd05a54c6a4660e1ead3"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGvW1xs4zwkB9",
+          "commit": {
+            "abbreviatedOid": "e7f0563"
+          },
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-01-31T20:13:46Z",
+          "updatedAt": "2022-01-31T20:13:46Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "PR_kwDOGvW1xs4x2TEL",
+      "title": "fix: implement RFC 8792 line wrapping",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/pull/19",
+      "state": "MERGED",
+      "author": "brownoxford",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Wrap long lines in JSON samples per [RFC 8792](https://datatracker.ietf.org/doc/html/rfc8792)\r\n\r\nFIX: #18",
+      "createdAt": "2022-01-31T16:15:08Z",
+      "updatedAt": "2022-01-31T20:16:24Z",
+      "baseRepository": "mesur-io/post-quantum-signatures",
+      "baseRefName": "main",
+      "baseRefOid": "cf31844f4d38d940224ee3d1ff5863dea2a5429b",
+      "headRepository": "brownoxford/post-quantum-signatures",
+      "headRefName": "fix/18",
+      "headRefOid": "48fd15190f7f4908bded6b3ab862455574a07480",
+      "closedAt": "2022-01-31T20:16:24Z",
+      "mergedAt": "2022-01-31T20:16:23Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "4db040cf4c3418019f7f8847aae05203b11c546a"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGvW1xs4zwkmN",
+          "commit": {
+            "abbreviatedOid": "48fd151"
+          },
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-01-31T20:16:17Z",
+          "updatedAt": "2022-01-31T20:16:17Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
