@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-02-03T00:36:46.966218+00:00",
+  "timestamp": "2022-02-08T00:38:52.304691+00:00",
   "repo": "mesur-io/post-quantum-signatures",
   "labels": [
     {
@@ -456,6 +456,30 @@
       "updatedAt": "2022-02-01T14:06:29Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 22,
+      "id": "I_kwDOGvW1xs5DEsAb",
+      "title": "JWK and JWA Fields",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/22",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Consider:\r\n\r\n```js\r\nkty: 'PQK',\r\nalg: 'CRYDI',\r\npset: '3',\r\nx: 'mVahKoVifK...'\r\n```\r\n\r\nDo we really want the `pset` value encoded like this?\r\n\r\nJWA / JWK layers are meant to abstract complexity from lower level crypto.\r\n\r\nIMO, we should be registering thing such that you can switch on a single string field...\r\n\r\nWhen you see:\r\n\r\n`crv: 'Ed25519'` ...You know you will be using `alg: EdDSA`.\r\n\r\nWhen you see:\r\n\r\n`crv: 'secp256k1'` ...You know you will be using `alg: ES256K`.\r\n\r\n\r\nWhen you see:\r\n\r\n`crv: 'P256'` ...You know you will be using `alg: ES256`.\r\n\r\nI think we want `alg: 'CRYDI3'` or `pset: 'CRYDI3'`\r\n\r\nBut not both in the JWK.\r\n\r\n",
+      "createdAt": "2022-02-06T20:05:20Z",
+      "updatedAt": "2022-02-06T20:13:26Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This issue is also blocking out ability to register multicodecs since we need a single name for the concept of \"crv\" in order to do that.... which in turn blocks possibility of registering a did key representation.",
+          "createdAt": "2022-02-06T20:13:02Z",
+          "updatedAt": "2022-02-06T20:13:26Z"
+        }
+      ]
     }
   ],
   "pulls": [
