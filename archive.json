@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-02-08T00:38:52.304691+00:00",
+  "timestamp": "2022-02-10T00:39:55.105158+00:00",
   "repo": "mesur-io/post-quantum-signatures",
   "labels": [
     {
@@ -478,6 +478,30 @@
           "body": "This issue is also blocking out ability to register multicodecs since we need a single name for the concept of \"crv\" in order to do that.... which in turn blocks possibility of registering a did key representation.",
           "createdAt": "2022-02-06T20:13:02Z",
           "updatedAt": "2022-02-06T20:13:26Z"
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "id": "I_kwDOGvW1xs5DN1pd",
+      "title": "IETF Timeline",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/23",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://datatracker.ietf.org/meeting/113/important-dates/\r\n\r\nBlackout:\r\n> 2022-03-07 (Monday): Internet Draft submission cut-off (for all drafts, including -00) by UTC 23:59.\r\n\r\nIdeally we have submitted a `draft-authors-` doc to CFRG mailing list.\r\n\r\nby then.\r\n\r\nWe will need to define the binary representations prior to serializations in JOSE / COSE.\r\n\r\nCFRG would want to look at those first, and might request security considerations be documented.\r\n\r\n",
+      "createdAt": "2022-02-08T20:01:15Z",
+      "updatedAt": "2022-02-08T20:01:48Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "As an aside I need to do the same thing for merkle proof based selective disclosure work.",
+          "createdAt": "2022-02-08T20:01:48Z",
+          "updatedAt": "2022-02-08T20:01:48Z"
         }
       ]
     }
