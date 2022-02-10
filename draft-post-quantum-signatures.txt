@@ -15,11 +15,11 @@ none                                                          M. Prorock
                                                                      NXP
                                                                  D. Bong
                                                                  Utimaco
-                                                         6 February 2022
+                                                        10 February 2022
 
 
                JSON Encoding for Post Quantum Signatures
-                     draft-post-quantum-jose-latest
+                  draft-post-quantum-signatures-latest
 
 Abstract
 
