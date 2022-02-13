@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-02-10T00:39:55.105158+00:00",
+  "timestamp": "2022-02-13T00:42:12.297440+00:00",
   "repo": "mesur-io/post-quantum-signatures",
   "labels": [
     {
@@ -193,7 +193,7 @@
       "id": "I_kwDOGvW1xs5CnrBR",
       "title": "Do we want to rename this repo?",
       "url": "https://github.com/mesur-io/post-quantum-signatures/issues/7",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "brownoxford",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -202,8 +202,8 @@
       ],
       "body": "It looks like we have settled on `post-quantum-jose` for the draft name, should we modify the repo name to match?",
       "createdAt": "2022-01-28T18:08:58Z",
-      "updatedAt": "2022-01-31T19:29:12Z",
-      "closedAt": null,
+      "updatedAt": "2022-02-10T13:54:41Z",
+      "closedAt": "2022-02-10T13:54:41Z",
       "comments": [
         {
           "author": "OR13",
@@ -856,26 +856,50 @@
       "id": "PR_kwDOGvW1xs4x6Rh7",
       "title": "fix: rename draft file to draft-postquantum-signatures",
       "url": "https://github.com/mesur-io/post-quantum-signatures/pull/21",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "brownoxford",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "FIX: #7",
       "createdAt": "2022-02-01T15:24:57Z",
-      "updatedAt": "2022-02-01T15:25:31Z",
+      "updatedAt": "2022-02-10T14:03:28Z",
       "baseRepository": "mesur-io/post-quantum-signatures",
       "baseRefName": "main",
       "baseRefOid": "4db040cf4c3418019f7f8847aae05203b11c546a",
       "headRepository": "brownoxford/post-quantum-signatures",
       "headRefName": "fix/7",
       "headRefOid": "deeb8a4f6b926767493a8e15f08ed50e2dd44c96",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "closedAt": "2022-02-10T13:54:41Z",
+      "mergedAt": "2022-02-10T13:54:41Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "0eaa8f934f93114ab111a4eea321a7a1f7d73aa9"
+      },
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "imo, editorial PRs like this can be merged immediately (just make sure to fix anything that breaks).",
+          "createdAt": "2022-02-10T13:51:57Z",
+          "updatedAt": "2022-02-10T13:51:57Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGvW1xs40YnMV",
+          "commit": {
+            "abbreviatedOid": "deeb8a4"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-02-10T13:51:10Z",
+          "updatedAt": "2022-02-10T13:51:10Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
