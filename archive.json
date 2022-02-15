@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-02-13T00:42:12.297440+00:00",
+  "timestamp": "2022-02-15T00:42:34.209198+00:00",
   "repo": "mesur-io/post-quantum-signatures",
   "labels": [
     {
@@ -344,7 +344,7 @@
       "labels": [],
       "body": "The readme instructions should assist a contributor in setting up, building and previewing local spec changes.\r\n\r\nThe instructions should work in all operating systems, or list the only supported OS.\r\n\r\n",
       "createdAt": "2022-01-29T17:09:20Z",
-      "updatedAt": "2022-01-31T20:11:03Z",
+      "updatedAt": "2022-02-14T15:51:18Z",
       "closedAt": null,
       "comments": [
         {
@@ -374,6 +374,20 @@
           "body": "Per our offline conversation, I will modify `README.md` to include basic instructions for building `txt` and `html` versions of the draft spec for local review by installing the latest `mmark` and `xml2rfc` on Linux and OSX and also by running the relevant docker commands.",
           "createdAt": "2022-01-31T20:11:03Z",
           "updatedAt": "2022-01-31T20:11:03Z"
+        },
+        {
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@brownoxford how we looking here - is this ok to close?",
+          "createdAt": "2022-02-14T15:30:03Z",
+          "updatedAt": "2022-02-14T15:30:03Z"
+        },
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> @brownoxford how we looking here - is this ok to close?\r\n\r\nNo, this is still on my plate",
+          "createdAt": "2022-02-14T15:51:18Z",
+          "updatedAt": "2022-02-14T15:51:18Z"
         }
       ]
     },
@@ -405,9 +419,17 @@
       "labels": [],
       "body": "Embedded SVGs cause the build process to produce many errors, and omit the math entirely from TXT versions of the draft:\r\n\r\n```\r\n3.3.1.  Generate\r\n\r\n   (Artwork only available as svg: spec/key-gen.svg)\r\n\r\n                                  Figure 1\r\n```\r\n\r\nCan we refactor this into text format? I took a look at some other specs, e.g., [bbs+](https://identity.foundation/bbs-signature/draft-bbs-signatures.html), and they seem to use text for the math (doesn't look great though).",
       "createdAt": "2022-01-31T14:52:45Z",
-      "updatedAt": "2022-01-31T14:52:45Z",
+      "updatedAt": "2022-02-14T15:08:28Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "These may get removed, see #26 ",
+          "createdAt": "2022-02-14T15:08:27Z",
+          "updatedAt": "2022-02-14T15:08:27Z"
+        }
+      ]
     },
     {
       "number": 16,
@@ -504,6 +526,70 @@
           "updatedAt": "2022-02-08T20:01:48Z"
         }
       ]
+    },
+    {
+      "number": 25,
+      "id": "I_kwDOGvW1xs5Dy8HS",
+      "title": "Add yourself to codeowners",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/25",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "If you intend on reviewing PRs, suggesting changes, please add yourself to CODEOWNERS so you get automatically pinged for reviews.",
+      "createdAt": "2022-02-14T14:59:50Z",
+      "updatedAt": "2022-02-14T14:59:50Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 26,
+      "id": "I_kwDOGvW1xs5Dy-nl",
+      "title": "Remove the SVG equations from the spec",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/26",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "when the spec was only focused on dilithium, these made sense, but I think now we can remove them and simply cite the paper, and use the test vectors to cover the requirements for this spec.",
+      "createdAt": "2022-02-14T15:07:05Z",
+      "updatedAt": "2022-02-14T15:07:05Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 27,
+      "id": "I_kwDOGvW1xs5DzKPU",
+      "title": "JWK Thumbprint and PQK",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/27",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://datatracker.ietf.org/doc/html/rfc7638\r\n\r\nNeed to define the required fields and their order.",
+      "createdAt": "2022-02-14T15:41:40Z",
+      "updatedAt": "2022-02-14T15:41:40Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 28,
+      "id": "I_kwDOGvW1xs5DzK6N",
+      "title": "Move xs and ds out of PQK JWK for dilithium",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/28",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Internalize them to the C implementation.",
+      "createdAt": "2022-02-14T15:44:04Z",
+      "updatedAt": "2022-02-14T15:44:18Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -897,6 +983,86 @@
           "body": "",
           "createdAt": "2022-02-10T13:51:10Z",
           "updatedAt": "2022-02-10T13:51:10Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "id": "PR_kwDOGvW1xs4yyq3D",
+      "title": "Replace \"pset\" with registered \"alg\"",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/pull/24",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR attempts to reduce the complexity by using the `alg` field and avoiding registering a new term `pset` which does not generalize beyond dilithium.\r\n\r\nThis also aligns better with the specs that registered traditional ecdsa.",
+      "createdAt": "2022-02-14T14:45:55Z",
+      "updatedAt": "2022-02-14T15:26:35Z",
+      "baseRepository": "mesur-io/post-quantum-signatures",
+      "baseRefName": "main",
+      "baseRefOid": "7bab77c3f5acdef1cb2fd35678a53066eda38778",
+      "headRepository": "mesur-io/post-quantum-signatures",
+      "headRefName": "feat/replace-pset-with-registered-alg",
+      "headRefOid": "a22dc4a23c91573f182ddb0e86d46a51fc115c9a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGvW1xs40jj1v",
+          "commit": {
+            "abbreviatedOid": "a22dc4a"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-02-14T14:46:53Z",
+          "updatedAt": "2022-02-14T14:46:53Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "note the abuse of the `alg` field here previously... its values did not match the signature values that we need to register... because of the pset part.",
+              "createdAt": "2022-02-14T14:46:53Z",
+              "updatedAt": "2022-02-14T14:58:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGvW1xs40jkK-",
+          "commit": {
+            "abbreviatedOid": "a22dc4a"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-02-14T14:47:49Z",
+          "updatedAt": "2022-02-14T14:47:50Z",
+          "comments": [
+            {
+              "originalPosition": 75,
+              "body": "Note the simplification here.\r\n\r\nsee below the example of the JWS header:\r\n\r\n```\r\n\"header\": { \"alg\": \"CRYDI3\", \"kid\": \"did:example:123#key-0\" },\r\n```\r\n\r\nnote the algorithm here contains the pset as suffix....but the original spec registered `alg` without the pset and with it... which was confusing.",
+              "createdAt": "2022-02-14T14:47:49Z",
+              "updatedAt": "2022-02-14T14:49:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGvW1xs40jyKI",
+          "commit": {
+            "abbreviatedOid": "a22dc4a"
+          },
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-02-14T15:26:35Z",
+          "updatedAt": "2022-02-14T15:26:35Z",
           "comments": []
         }
       ]
