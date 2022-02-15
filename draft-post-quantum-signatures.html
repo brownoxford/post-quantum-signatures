@@ -1125,7 +1125,10 @@ only seralizations of existing cryptographic systems.<a href="#section-abstract-
                     <p id="section-toc.1-1.3.2.4.2.1.1"><a href="#section-3.4.1" class="xref">3.4.1</a>.  <a href="#name-crydi-key-representations" class="xref">CRYDI Key Representations</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.2">
-                    <p id="section-toc.1-1.3.2.4.2.2.1"><a href="#section-3.4.2" class="xref">3.4.2</a>.  <a href="#name-crydi-signature-representat" class="xref">CRYDI Signature Representation</a></p>
+                    <p id="section-toc.1-1.3.2.4.2.2.1"><a href="#section-3.4.2" class="xref">3.4.2</a>.  <a href="#name-crydi-algorithms" class="xref">CRYDI Algorithms</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.3">
+                    <p id="section-toc.1-1.3.2.4.2.3.1"><a href="#section-3.4.3" class="xref">3.4.3</a>.  <a href="#name-crydi-signature-representat" class="xref">CRYDI Signature Representation</a></p>
 </li>
                 </ul>
 </li>
@@ -2714,8 +2717,8 @@ It has the following parameters:<a href="#section-3.4.1-1" class="pilcrow">¶</a
               <p id="section-3.4.1-2.1.1">The parameter "kty" MUST be "PQK".<a href="#section-3.4.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.4.1-2.2">
-              <p id="section-3.4.1-2.2.1">The patameter "alg" MAY be specified, and at this time MAY only be "CRYDI" until
-other algorithms are specified<a href="#section-3.4.1-2.2.1" class="pilcrow">¶</a></p>
+              <p id="section-3.4.1-2.2.1">The parameter "alg" MUST be specified, and its value MUST be one of the values
+specified in table <strong>TBD</strong>.<a href="#section-3.4.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.4.1-2.3">
               <p id="section-3.4.1-2.3.1">The parameter "pset" MUST be specfied to indicate the not only paramter set
@@ -2783,23 +2786,60 @@ MUST NOT be present for public keys.<a href="#section-3.4.1-2.7.1" class="pilcro
 <p id="section-3.4.1-5">When calculating JWK Thumbprints <span>[<a href="#RFC7638" class="xref">RFC7638</a>]</span>, the four public key
 fields are included in the hash input in lexicographic order:
 "kty", "pset", and "x".<a href="#section-3.4.1-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="crydi-algorithms">
+<section id="section-3.4.2">
+          <h4 id="name-crydi-algorithms">
+<a href="#section-3.4.2" class="section-number selfRef">3.4.2. </a><a href="#name-crydi-algorithms" class="section-name selfRef">CRYDI Algorithms</a>
+          </h4>
+<p id="section-3.4.2-1">In order to reduce the complexity of the key representation and signature representations we register a unique algorithm name per pset.
+This allows us to omit registering the <code>pset</code> term, and reduced the likelyhood that it will be misused.
+These <code>alg</code> values are used in both key representations and signatures.<a href="#section-3.4.2-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-3">
+            <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">kty</th>
+                <th class="text-left" rowspan="1" colspan="1">alg</th>
+                <th class="text-left" rowspan="1" colspan="1">Paramter Set</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">PQK</td>
+                <td class="text-left" rowspan="1" colspan="1">CRYDI5</td>
+                <td class="text-left" rowspan="1" colspan="1">5</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">PQK</td>
+                <td class="text-left" rowspan="1" colspan="1">CRYDI3</td>
+                <td class="text-left" rowspan="1" colspan="1">3</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">PQK</td>
+                <td class="text-left" rowspan="1" colspan="1">CRYDI2</td>
+                <td class="text-left" rowspan="1" colspan="1">2</td>
+              </tr>
+            </tbody>
+          </table>
 <div id="public-key">
-<section id="section-3.4.1.1">
+<section id="section-3.4.2.1">
             <h5 id="name-public-key">
-<a href="#section-3.4.1.1" class="section-number selfRef">3.4.1.1. </a><a href="#name-public-key" class="section-name selfRef">Public Key</a>
+<a href="#section-3.4.2.1" class="section-number selfRef">3.4.2.1. </a><a href="#name-public-key" class="section-name selfRef">Public Key</a>
             </h5>
-<p id="section-3.4.1.1-1">Per section 5.1 of <span>[<a href="#CRYSTALS-Dilithium" class="xref">CRYSTALS-Dilithium</a>]</span>:<a href="#section-3.4.1.1-1" class="pilcrow">¶</a></p>
-<blockquote id="section-3.4.1.1-2">
-              <p id="section-3.4.1.1-2.1">The public key, containing &amp;#961; and t1, is stored as the concatenation of the bit-packed representations of &amp;#961; and t1 in this order. Therefore, it has a size of 32 + 288 kbytes.<a href="#section-3.4.1.1-2.1" class="pilcrow">¶</a></p>
+<p id="section-3.4.2.1-1">Per section 5.1 of <span>[<a href="#CRYSTALS-Dilithium" class="xref">CRYSTALS-Dilithium</a>]</span>:<a href="#section-3.4.2.1-1" class="pilcrow">¶</a></p>
+<blockquote id="section-3.4.2.1-2">
+              <p id="section-3.4.2.1-2.1">The public key, containing &amp;#961; and t1, is stored as the concatenation of the bit-packed representations of &amp;#961; and t1 in this order. Therefore, it has a size of 32 + 288 kbytes.<a href="#section-3.4.2.1-2.1" class="pilcrow">¶</a></p>
 </blockquote>
-<p id="section-3.4.1.1-3">The public key is represented as <code>x</code> and encoded using base64url encoding as described in <span>[<a href="#RFC7517" class="xref">RFC7517</a>]</span>.<a href="#section-3.4.1.1-3" class="pilcrow">¶</a></p>
-<p id="section-3.4.1.1-4">Example public key using only required fields:<a href="#section-3.4.1.1-4" class="pilcrow">¶</a></p>
-<div id="section-3.4.1.1-5">
+<p id="section-3.4.2.1-3">The public key is represented as <code>x</code> and encoded using base64url encoding as described in <span>[<a href="#RFC7517" class="xref">RFC7517</a>]</span>.<a href="#section-3.4.2.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.4.2.1-4">Example public key using only required fields:<a href="#section-3.4.2.1-4" class="pilcrow">¶</a></p>
+<div id="section-3.4.2.1-5">
 <pre class="lang-json sourcecode">=============== NOTE: '\' line wrapping per RFC 8792 ================
 
 {
   "kty": "PQK",
-  "pset": "3",
+  "alg": "CRYDI3",
   "x": "z7u7GwhsjjnfHH3Nkrs2xvvw020Rcw5ymdlTnhRenjDdrOO+nfXRVUZVy9q1\
 5zDn77zTgrIskM3WX8bqslc+B1fq12iA/wxD2jc1d6j+YjKCtkGH26OR7vc0YC2ZiMzW\
 zGl7yebt7JkmjRbN1N+u/2fAKFLuziMcLNP6WLoWbMqxoC2XOOVNAWX3QjXrCcGU23Nr\
@@ -2840,17 +2880,16 @@ xsOXMUbDC3VcitFFHsGK1svtcERDFxk1HA8pGa59jT0do6n3wEbnBDU1soKNFtpmcVkE\
 Ul3XpvuoW3BgCwJzBUCWvPs47DJRgGxO11bSaEYYlhTVaaShcvzgz46AkqO+Q7TjckDP\
 /8uzsSQk0AbuhxWFQpSiBP8OZ/U="
 }
-</pre><a href="#section-3.4.1.1-5" class="pilcrow">¶</a>
+</pre><a href="#section-3.4.2.1-5" class="pilcrow">¶</a>
 </div>
-<p id="section-3.4.1.1-6">Example public key including optional fields:<a href="#section-3.4.1.1-6" class="pilcrow">¶</a></p>
-<div id="section-3.4.1.1-7">
+<p id="section-3.4.2.1-6">Example public key including optional fields:<a href="#section-3.4.2.1-6" class="pilcrow">¶</a></p>
+<div id="section-3.4.2.1-7">
 <pre class="lang-json sourcecode">=============== NOTE: '\' line wrapping per RFC 8792 ================
 
 {
   "kid": "key-0",
   "kty": "PQK",
-  "alg": "CRYDI",
-  "pset": "3",
+  "alg": "CRYDI3",
   "key_ops": ["verify"],
   "xs": "z3uZQVjflnRZDSZn1e8g4oKH4YUU6TnpvkU4WrrGdXw=",
   "ds": "5DuZ8XoJQirc/5TE23tBcoGoHo+JTj1+9ULLXtCiySU=",
@@ -2894,28 +2933,27 @@ xsOXMUbDC3VcitFFHsGK1svtcERDFxk1HA8pGa59jT0do6n3wEbnBDU1soKNFtpmcVkE\
 Ul3XpvuoW3BgCwJzBUCWvPs47DJRgGxO11bSaEYYlhTVaaShcvzgz46AkqO+Q7TjckDP\
 /8uzsSQk0AbuhxWFQpSiBP8OZ/U="
 }
-</pre><a href="#section-3.4.1.1-7" class="pilcrow">¶</a>
+</pre><a href="#section-3.4.2.1-7" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 <div id="private-key">
-<section id="section-3.4.1.2">
+<section id="section-3.4.2.2">
             <h5 id="name-private-key">
-<a href="#section-3.4.1.2" class="section-number selfRef">3.4.1.2. </a><a href="#name-private-key" class="section-name selfRef">Private Key</a>
+<a href="#section-3.4.2.2" class="section-number selfRef">3.4.2.2. </a><a href="#name-private-key" class="section-name selfRef">Private Key</a>
             </h5>
-<p id="section-3.4.1.2-1">Per section 5.1 of <span>[<a href="#CRYSTALS-Dilithium" class="xref">CRYSTALS-Dilithium</a>]</span>:<a href="#section-3.4.1.2-1" class="pilcrow">¶</a></p>
-<blockquote id="section-3.4.1.2-2">
-              <p id="section-3.4.1.2-2.1">The secret key contains &amp;#961;,K,tr,s1,s2 and t0 and is also stored as a bit-packed representation of these quantities in the given order. Consequently, a secret key requires 64 + 48 + 32((k+l)&amp;#183;dlog (2&amp;#951;+ 1)e+ 14k)bytes. For the weak, medium and high security level this is equal to 112 + 576k+ 128lbytes. With the very high security parameters one needs 112 + 544k+ 96l= 3856bytes.<a href="#section-3.4.1.2-2.1" class="pilcrow">¶</a></p>
+<p id="section-3.4.2.2-1">Per section 5.1 of <span>[<a href="#CRYSTALS-Dilithium" class="xref">CRYSTALS-Dilithium</a>]</span>:<a href="#section-3.4.2.2-1" class="pilcrow">¶</a></p>
+<blockquote id="section-3.4.2.2-2">
+              <p id="section-3.4.2.2-2.1">The secret key contains &amp;#961;,K,tr,s1,s2 and t0 and is also stored as a bit-packed representation of these quantities in the given order. Consequently, a secret key requires 64 + 48 + 32((k+l)&amp;#183;dlog (2&amp;#951;+ 1)e+ 14k)bytes. For the weak, medium and high security level this is equal to 112 + 576k+ 128lbytes. With the very high security parameters one needs 112 + 544k+ 96l= 3856bytes.<a href="#section-3.4.2.2-2.1" class="pilcrow">¶</a></p>
 </blockquote>
-<p id="section-3.4.1.2-3">The private key is represented as <code>d</code> and encoded using base64url encoding as described in <span>[<a href="#RFC7517" class="xref">RFC7517</a>]</span>.<a href="#section-3.4.1.2-3" class="pilcrow">¶</a></p>
-<p id="section-3.4.1.2-4">Example private key using only required fields:<a href="#section-3.4.1.2-4" class="pilcrow">¶</a></p>
-<div id="section-3.4.1.2-5">
+<p id="section-3.4.2.2-3">The private key is represented as <code>d</code> and encoded using base64url encoding as described in <span>[<a href="#RFC7517" class="xref">RFC7517</a>]</span>.<a href="#section-3.4.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.4.2.2-4">Example private key using only required fields:<a href="#section-3.4.2.2-4" class="pilcrow">¶</a></p>
+<div id="section-3.4.2.2-5">
 <pre class="lang-json sourcecode">=============== NOTE: '\' line wrapping per RFC 8792 ================
 
 {
   "kty": "PQK",
-  "alg": "CRYDI",
-  "pset": "3",
+  "alg": "CRYDI3",
   "x": "z7u7GwhsjjnfHH3Nkrs2xvvw020Rcw5ymdlTnhRenjDdrOO+nfXRVUZVy9q1\
 5zDn77zTgrIskM3WX8bqslc+B1fq12iA/wxD2jc1d6j+YjKCtkGH26OR7vc0YC2ZiMzW\
 zGl7yebt7JkmjRbN1N+u/2fAKFLuziMcLNP6WLoWbMqxoC2XOOVNAWX3QjXrCcGU23Nr\
@@ -3035,17 +3073,16 @@ glErCNKDYe1+T+Ldyr9rfOKm9LKNyTBsodgF4KI/hFh9Iv/i55DTWtqjpN0eQnPTB3/6\
 TBp9m049Nh9oDZvI4HKsY8auiyENk0ys67F9GTHhOYM0FgHyP5qk4/IR5YC3lnq7xx6i\
 owebEJAy63htMytq+xd3cJyZR0lWBUOqvSpd/A=="
 }
-</pre><a href="#section-3.4.1.2-5" class="pilcrow">¶</a>
+</pre><a href="#section-3.4.2.2-5" class="pilcrow">¶</a>
 </div>
-<p id="section-3.4.1.2-6">Example private key using optional fields:<a href="#section-3.4.1.2-6" class="pilcrow">¶</a></p>
-<div id="section-3.4.1.2-7">
+<p id="section-3.4.2.2-6">Example private key using optional fields:<a href="#section-3.4.2.2-6" class="pilcrow">¶</a></p>
+<div id="section-3.4.2.2-7">
 <pre class="lang-json sourcecode">=============== NOTE: '\' line wrapping per RFC 8792 ================
 
 {
   "kid": "key-0",
   "kty": "PQK",
-  "alg": "CRYDI",
-  "pset": "3",
+  "alg": "CRYDI3",
   "key_ops": ["sign"],
   "xs": "z3uZQVjflnRZDSZn1e8g4oKH4YUU6TnpvkU4WrrGdXw=",
   "ds": "5DuZ8XoJQirc/5TE23tBcoGoHo+JTj1+9ULLXtCiySU=",
@@ -3168,24 +3205,24 @@ glErCNKDYe1+T+Ldyr9rfOKm9LKNyTBsodgF4KI/hFh9Iv/i55DTWtqjpN0eQnPTB3/6\
 TBp9m049Nh9oDZvI4HKsY8auiyENk0ys67F9GTHhOYM0FgHyP5qk4/IR5YC3lnq7xx6i\
 owebEJAy63htMytq+xd3cJyZR0lWBUOqvSpd/A=="
 }
-</pre><a href="#section-3.4.1.2-7" class="pilcrow">¶</a>
+</pre><a href="#section-3.4.2.2-7" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 </section>
 </div>
 <div id="crydi-signature-representation">
-<section id="section-3.4.2">
+<section id="section-3.4.3">
           <h4 id="name-crydi-signature-representat">
-<a href="#section-3.4.2" class="section-number selfRef">3.4.2. </a><a href="#name-crydi-signature-representat" class="section-name selfRef">CRYDI Signature Representation</a>
+<a href="#section-3.4.3" class="section-number selfRef">3.4.3. </a><a href="#name-crydi-signature-representat" class="section-name selfRef">CRYDI Signature Representation</a>
           </h4>
-<p id="section-3.4.2-1">For the purpose of using the CRYSTALS-Dilithium Signature
+<p id="section-3.4.3-1">For the purpose of using the CRYSTALS-Dilithium Signature
 Algorithm (CRYDI) for signing data using "JSON Web Signature (JWS)"
 <span>[<a href="#RFC7515" class="xref">RFC7515</a>]</span>, algorithm "CRYDI" is defined here, to be applied as the
-value of the "alg" parameter.<a href="#section-3.4.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.4.2-2">The following key subtypes are defined here for use with CRYDI:<a href="#section-3.4.2-2" class="pilcrow">¶</a></p>
-<table class="center" id="table-3">
-            <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
+value of the "alg" parameter.<a href="#section-3.4.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.3-2">The following key subtypes are defined here for use with CRYDI:<a href="#section-3.4.3-2" class="pilcrow">¶</a></p>
+<table class="center" id="table-4">
+            <caption><a href="#table-4" class="selfRef">Table 4</a></caption>
 <thead>
               <tr>
                 <th class="text-left" rowspan="1" colspan="1">"pset"</th>
@@ -3207,54 +3244,50 @@ value of the "alg" parameter.<a href="#section-3.4.2-1" class="pilcrow">¶</a></
               </tr>
             </tbody>
           </table>
-<p id="section-3.4.2-4">The key type used with these keys is "PQK" and the algorithm used for
-signing is "CRYDI". These subtypes MUST NOT be used for key agreement.<a href="#section-3.4.2-4" class="pilcrow">¶</a></p>
-<p id="section-3.4.2-5">The CRYDI variant used is determined by the subtype of the key
-(CRYDI3 for "pset 3" and CRYDI2 for "pset 2").<a href="#section-3.4.2-5" class="pilcrow">¶</a></p>
-<p id="section-3.4.2-6">Implementations need to check that the key type is "PQK" for JOSE and
+<p id="section-3.4.3-4">The key type used with these keys is "PQK" and the algorithm used for
+signing is "CRYDI". These subtypes MUST NOT be used for key agreement.<a href="#section-3.4.3-4" class="pilcrow">¶</a></p>
+<p id="section-3.4.3-5">The CRYDI variant used is determined by the subtype of the key
+(CRYDI3 for "pset 3" and CRYDI2 for "pset 2").<a href="#section-3.4.3-5" class="pilcrow">¶</a></p>
+<p id="section-3.4.3-6">Implementations need to check that the key type is "PQK" for JOSE and
 that the pset of the key is a valid subtype when creating a
-signature.<a href="#section-3.4.2-6" class="pilcrow">¶</a></p>
-<p id="section-3.4.2-7">The CRYDI digital signature is generated as
-follows:<a href="#section-3.4.2-7" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-3.4.2-8">
-<li id="section-3.4.2-8.1">
-              <p id="section-3.4.2-8.1.1">Generate a digital signature of the JWS Signing Input
+signature.<a href="#section-3.4.3-6" class="pilcrow">¶</a></p>
+<p id="section-3.4.3-7">The CRYDI digital signature is generated as
+follows:<a href="#section-3.4.3-7" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-3.4.3-8">
+<li id="section-3.4.3-8.1">
+              <p id="section-3.4.3-8.1.1">Generate a digital signature of the JWS Signing Input
 using CRYDI with the desired private key, as described in <a href="#name-sign">Section 3.2</a>.
 The signature bit string is the concatenation of a bit packed
-representation of z and encodings of h and c in this order.<a href="#section-3.4.2-8.1.1" class="pilcrow">¶</a></p>
+representation of z and encodings of h and c in this order.<a href="#section-3.4.3-8.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li id="section-3.4.2-8.2">
-              <p id="section-3.4.2-8.2.1">The resulting octet sequence is the JWS Signature.<a href="#section-3.4.2-8.2.1" class="pilcrow">¶</a></p>
+            <li id="section-3.4.3-8.2">
+              <p id="section-3.4.3-8.2.1">The resulting octet sequence is the JWS Signature.<a href="#section-3.4.3-8.2.1" class="pilcrow">¶</a></p>
 </li>
           </ol>
-<p id="section-3.4.2-9">When using a JWK for this algorithm, the following checks
-are made:<a href="#section-3.4.2-9" class="pilcrow">¶</a></p>
+<p id="section-3.4.3-9">When using a JWK for this algorithm, the following checks
+are made:<a href="#section-3.4.3-9" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.4.2-10.1">
-              <p id="section-3.4.2-10.1.1">The "kty" field MUST be present, and it MUST be "PQK" for JOSE.<a href="#section-3.4.2-10.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.4.3-10.1">
+              <p id="section-3.4.3-10.1.1">The "kty" field MUST be present, and it MUST be "PQK" for JOSE.<a href="#section-3.4.3-10.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.4.2-10.2">
-              <p id="section-3.4.2-10.2.1">The "pset" field MUST be present, and it MUST represent the
-pset subtype.<a href="#section-3.4.2-10.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.4.3-10.2">
+              <p id="section-3.4.3-10.2.1">The "alg" field MUST be present, and it MUST represent the
+pset subtype.<a href="#section-3.4.3-10.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.4.2-10.3">
-              <p id="section-3.4.2-10.3.1">If the "alg" field is present, it MUST represent the "CRYDI"
-algorithm.<a href="#section-3.4.2-10.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.4.3-10.3">
+              <p id="section-3.4.3-10.3.1">If the "key_ops" field is present, it MUST include "sign" when
+creating an CRYDI signature.<a href="#section-3.4.3-10.3.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.4.2-10.4">
-              <p id="section-3.4.2-10.4.1">If the "key_ops" field is present, it MUST include "sign" when
-creating an CRYDI signature.<a href="#section-3.4.2-10.4.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.4.3-10.4">
+              <p id="section-3.4.3-10.4.1">If the "key_ops" field is present, it MUST include "verify" when
+verifying an CRYDI signature.<a href="#section-3.4.3-10.4.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.4.2-10.5">
-              <p id="section-3.4.2-10.5.1">If the "key_ops" field is present, it MUST include "verify" when
-verifying an CRYDI signature.<a href="#section-3.4.2-10.5.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.4.2-10.6">
-              <p id="section-3.4.2-10.6.1">If the JWK "use" field is present, its value MUST be "sig".<a href="#section-3.4.2-10.6.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.4.3-10.5">
+              <p id="section-3.4.3-10.5.1">If the JWK "use" field is present, its value MUST be "sig".<a href="#section-3.4.3-10.5.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-3.4.2-11">Example signature using only required fields, represented in compact form:<a href="#section-3.4.2-11" class="pilcrow">¶</a></p>
-<div id="section-3.4.2-12">
+<p id="section-3.4.3-11">Example signature using only required fields, represented in compact form:<a href="#section-3.4.3-11" class="pilcrow">¶</a></p>
+<div id="section-3.4.3-12">
 <pre class="lang-json sourcecode">eyJhbGciOiJQUzM4NCIsImtpZCI6ImJpbGJvLmJhZ2dpbnNAaG9iYml0b24uZX
 hhbXBsZSJ9
 .
@@ -3269,10 +3302,10 @@ vdvWXzg-UD8biiReQFlfz28zGWVsdiNAUf8ZnyPEgVFn442ZdNqiVJRmBqrYRX
 e8P_ijQ7p8Vdz0TTrxUeT3lm8d9shnr2lfJT8ImUjvAA2Xez2Mlp8cBE5awDzT
 0qI0n6uiP1aCN_2_jLAeQTlqRHtfa64QQSUmFAAjVKPbByi7xho0uTOcbH510a
 6GYmJUAfmWjwZ6oD4ifKo8DYM-X72Eaw
-</pre><a href="#section-3.4.2-12" class="pilcrow">¶</a>
+</pre><a href="#section-3.4.3-12" class="pilcrow">¶</a>
 </div>
-<p id="section-3.4.2-13">The same example decoded for readability:<a href="#section-3.4.2-13" class="pilcrow">¶</a></p>
-<div id="section-3.4.2-14">
+<p id="section-3.4.3-13">The same example decoded for readability:<a href="#section-3.4.3-13" class="pilcrow">¶</a></p>
+<div id="section-3.4.3-14">
 <pre class="lang-json sourcecode">=============== NOTE: '\\' line wrapping per RFC 8792 ===============
 
 {
@@ -3347,7 +3380,7 @@ e8P_ijQ7p8Vdz0TTrxUeT3lm8d9shnr2lfJT8ImUjvAA2Xez2Mlp8cBE5awDzT
 \oW/leFs1fdP6SH+E24pOOJARU/f/ZajcMMXAwQdIVeOo7jvDhMydne90/18fcwpNVN0\
 \tswhRsnW4uMCSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIEBMZHyE="
 }
-</pre><a href="#section-3.4.2-14" class="pilcrow">¶</a>
+</pre><a href="#section-3.4.3-14" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
