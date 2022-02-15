@@ -15,7 +15,7 @@ none                                                          M. Prorock
                                                                      NXP
                                                                  D. Bong
                                                                  Utimaco
-                                                        14 February 2022
+                                                        15 February 2022
 
 
                JSON Encoding for Post Quantum Signatures
@@ -39,7 +39,7 @@ Table of Contents
 
    1.  Notational Conventions
    2.  Terminology
-   3.  CRYSYALS-Dilithium
+   3.  CRYSTALS-Dilithium
      3.1.  Overview
      3.2.  Parameters
        3.2.1.  Parameter sets
@@ -84,7 +84,7 @@ Table of Contents
 
    shake256  The SHAKE256 hash function defined in [RFC8702].
 
-3.  CRYSYALS-Dilithium
+3.  CRYSTALS-Dilithium
 
 3.1.  Overview
 
