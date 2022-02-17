@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-02-15T00:42:34.209198+00:00",
+  "timestamp": "2022-02-17T00:36:20.730530+00:00",
   "repo": "mesur-io/post-quantum-signatures",
   "labels": [
     {
@@ -992,24 +992,26 @@
       "id": "PR_kwDOGvW1xs4yyq3D",
       "title": "Replace \"pset\" with registered \"alg\"",
       "url": "https://github.com/mesur-io/post-quantum-signatures/pull/24",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "OR13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This PR attempts to reduce the complexity by using the `alg` field and avoiding registering a new term `pset` which does not generalize beyond dilithium.\r\n\r\nThis also aligns better with the specs that registered traditional ecdsa.",
       "createdAt": "2022-02-14T14:45:55Z",
-      "updatedAt": "2022-02-14T15:26:35Z",
+      "updatedAt": "2022-02-15T14:58:11Z",
       "baseRepository": "mesur-io/post-quantum-signatures",
       "baseRefName": "main",
       "baseRefOid": "7bab77c3f5acdef1cb2fd35678a53066eda38778",
       "headRepository": "mesur-io/post-quantum-signatures",
       "headRefName": "feat/replace-pset-with-registered-alg",
       "headRefOid": "a22dc4a23c91573f182ddb0e86d46a51fc115c9a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2022-02-15T14:58:10Z",
+      "mergedAt": "2022-02-15T14:58:10Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "3f4658d30f3363a5e4205aaa414310e44e88df1c"
+      },
       "comments": [],
       "reviews": [
         {
@@ -1063,6 +1065,61 @@
           "body": "",
           "createdAt": "2022-02-14T15:26:35Z",
           "updatedAt": "2022-02-14T15:26:35Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "id": "PR_kwDOGvW1xs4y15oU",
+      "title": "Update draft-post-quantum-signatures.md",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/pull/29",
+      "state": "MERGED",
+      "author": "cvvrede1296",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixed typo in CRYSTALS-Dilithium title",
+      "createdAt": "2022-02-15T08:57:01Z",
+      "updatedAt": "2022-02-15T13:51:12Z",
+      "baseRepository": "mesur-io/post-quantum-signatures",
+      "baseRefName": "main",
+      "baseRefOid": "2d20684cf58bfe55ba04c76a59a95bb2b56ef896",
+      "headRepository": "mesur-io/post-quantum-signatures",
+      "headRefName": "cvvrede1296-patch-1",
+      "headRefOid": "d6c77bbcdfbac136e0932b4ca0fba590012d666c",
+      "closedAt": "2022-02-15T13:51:12Z",
+      "mergedAt": "2022-02-15T13:51:12Z",
+      "mergedBy": "OR13",
+      "mergeCommit": {
+        "oid": "55c246aa813d58e3c086b1bb73f158303542c446"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGvW1xs40n4Tl",
+          "commit": {
+            "abbreviatedOid": "d6c77bb"
+          },
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-02-15T11:50:43Z",
+          "updatedAt": "2022-02-15T11:50:43Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGvW1xs40obGw",
+          "commit": {
+            "abbreviatedOid": "d6c77bb"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-02-15T13:50:57Z",
+          "updatedAt": "2022-02-15T13:50:57Z",
           "comments": []
         }
       ]
