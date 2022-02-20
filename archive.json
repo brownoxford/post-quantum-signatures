@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-02-17T00:36:20.730530+00:00",
+  "timestamp": "2022-02-20T00:46:46.430925+00:00",
   "repo": "mesur-io/post-quantum-signatures",
   "labels": [
     {
@@ -1123,6 +1123,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 30,
+      "id": "PR_kwDOGvW1xs4y_1-2",
+      "title": "Update draft-post-quantum-signatures.md",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/pull/30",
+      "state": "OPEN",
+      "author": "cvvrede1296",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added the subsections for  the SPHINCS+ details, and filled in text for the algorithm overview.",
+      "createdAt": "2022-02-17T15:18:47Z",
+      "updatedAt": "2022-02-17T15:18:47Z",
+      "baseRepository": "mesur-io/post-quantum-signatures",
+      "baseRefName": "main",
+      "baseRefOid": "3f4658d30f3363a5e4205aaa414310e44e88df1c",
+      "headRepository": "mesur-io/post-quantum-signatures",
+      "headRefName": "cvvrede1296-patch-2",
+      "headRefOid": "09d68d33e5f3ac2a07023adb0877e8a24b021f1d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
