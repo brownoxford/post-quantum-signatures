@@ -20,10 +20,10 @@ only seralizations of existing cryptographic systems.
        This document registers key types for JOSE and COSE, specifically  PQK ,  CRYDI ,  pset . 
        This document registers signature algorithms types for JOSE and COSE, specifically  CRYDI3 . 
     " name="description">
-<meta content="xml2rfc 3.12.1" name="generator">
+<meta content="xml2rfc 3.12.2" name="generator">
 <meta content="draft-post-quantum-signatures-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.12.1
+  xml2rfc 3.12.2
     Python 3.9.7
     appdirs 1.4.4
     ConfigArgParse 1.3
@@ -1139,6 +1139,47 @@ only seralizations of existing cryptographic systems.<a href="#section-abstract-
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-sphincs" class="xref">SPHINCS+</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-overview-2" class="xref">Overview</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-parameters-2" class="xref">Parameters</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
+                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="xref">5.2.1</a>.  <a href="#name-parameter-sets-2" class="xref">Parameter sets</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
+                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="xref">5.3</a>.  <a href="#name-core-operations-2" class="xref">Core Operations</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.1">
+                    <p id="section-toc.1-1.5.2.3.2.1.1"><a href="#section-5.3.1" class="xref">5.3.1</a>.  <a href="#name-generate-2" class="xref">Generate</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.2">
+                    <p id="section-toc.1-1.5.2.3.2.2.1"><a href="#section-5.3.2" class="xref">5.3.2</a>.  <a href="#name-sign-2" class="xref">Sign</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.3">
+                    <p id="section-toc.1-1.5.2.3.2.3.1"><a href="#section-5.3.3" class="xref">5.3.3</a>.  <a href="#name-verify-2" class="xref">Verify</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
+                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="xref">5.4</a>.  <a href="#name-using-sphincs-with-jose" class="xref">Using SPHINCS+ with JOSE</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4.2.1">
+                    <p id="section-toc.1-1.5.2.4.2.1.1"><a href="#section-5.4.1" class="xref">5.4.1</a>.  <a href="#name-sphincs-key-representations" class="xref">SPHINCS+ Key Representations</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4.2.2">
+                    <p id="section-toc.1-1.5.2.4.2.2.1"><a href="#section-5.4.2" class="xref">5.4.2</a>.  <a href="#name-sphincs-algorithms" class="xref">SPHINCS+ Algorithms</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4.2.3">
+                    <p id="section-toc.1-1.5.2.4.2.3.1"><a href="#section-5.4.3" class="xref">5.4.3</a>.  <a href="#name-sphincs-signature-represent" class="xref">SPHINCS+ Signature Representation</a></p>
+</li>
+                </ul>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
@@ -3401,7 +3442,168 @@ e8P_ijQ7p8Vdz0TTrxUeT3lm8d9shnr2lfJT8ImUjvAA2Xez2Mlp8cBE5awDzT
       <h2 id="name-sphincs">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-sphincs" class="section-name selfRef">SPHINCS+</a>
       </h2>
-<p id="section-5-1">TODO<a href="#section-5-1" class="pilcrow">¶</a></p>
+<div id="overview-1">
+<section id="section-5.1">
+        <h3 id="name-overview-2">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-overview-2" class="section-name selfRef">Overview</a>
+        </h3>
+<p id="section-5.1-1">This section of the document describes the hash-based signature scheme SPHINCS+.
+The scheme is based on the concept of authenticating a large number or few-time
+signatures keypair using a combination of Markle-tree signatures, a so-called
+hypertree. For each message to be signed a (pseudo-)random FTS keypair is
+selected with which the message can be signed. Combining this signature along
+with an authentication path through the hyper-tree consisting of hash-based
+many-time signatures then gives the SPHINC+ signature.
+The parameter set is strategically chosen such that the probability of signing
+too many messages with a specific FTS keypair to impact security is small
+enough to prevent forgery attacks. A trade-off in parameter set can be made
+on security guarantees, performance and signature size.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1-2">SPHINCS+ is a post-quantum approach to digital signatures that is
+promises Post-Quantum Existential Unforgeability under
+Chosen Message Attack (PQ-EU-CMA), while ensuring that the security
+levels reached meet security needs for resistance to both classical and quantum
+attacks. The algoritm itself is based on the hardness assumptions of its
+underlying hash functions, which can be chosen from the set Haraka,
+SHA-256 or SHAKE256.
+For all security levels the only operations required are calls to these
+hash functions on various combinations of parameters and internal states.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.1-3">Contrary to CRYSTALS-Dilithium and Falcon, SPHINCS+ is not based on any
+algebraic structure. This reduces the possible attack surface of the
+algorithm.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.1-4">SPHINCS+ brings several advantages over other approaches to
+signature suites:<a href="#section-5.1-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.1-5.1">Post Quantum in nature - use of cryptographically secure hash functions and
+other approaches that should remain hard problems even when under an attack
+utilizing quantum approaches<a href="#section-5.1-5.1" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-5.1-5.2">Minimal security assumptions - compared to other schemes does not base its
+security on a new paradigm. The security is solely based on the security of
+the assumptions of the underlying hash function.<a href="#section-5.1-5.2" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-5.1-5.3">Performance and Optimization - based on combining a great many hash function
+calls of SHA-256, SHAKE256 or Haraka means existing (secure) SW and HW
+implementations of those hash functions can be re-used for increased
+performance<a href="#section-5.1-5.3" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-5.1-5.4">Private and Public Key Size - compared to other post quantum approaches
+a very small key size is the form of hash inputs-outputs. This then has the
+drawback that either a large signature or low signing speed has to be
+accepted<a href="#section-5.1-5.4" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-5.1-5.5">Cryptanalysis assuarance - attacks (both pre-quantum and quantum) are easy
+to relate to existing attacks on hash functions. This allows for precise
+quantification of the security levels<a href="#section-5.1-5.5" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-5.1-5.6">Overlap with stateful hash-based algorithms - means there are possibilities
+to combine implementions with those of XMSS and LMS (TODO refs)<a href="#section-5.1-5.6" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-5.1-5.7">Inherent resistance against side-channel attacks - since its core primitive
+is a hash function, it thereby is hard to attack with side-channels.<a href="#section-5.1-5.7" class="pilcrow">¶</a>
+</li>
+        </ul>
+<p id="section-5.1-6">The primary known disadvantage to SPHINCS+ is the size signatures, or the
+speed of signing, depending on the chosen parameter set. Especially in IoT
+applications this might pose a problem. Additionally hash-based schemes are
+also vulnerable to differential and fault attacks.<a href="#section-5.1-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="parameters-1">
+<section id="section-5.2">
+        <h3 id="name-parameters-2">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-parameters-2" class="section-name selfRef">Parameters</a>
+        </h3>
+<p id="section-5.2-1">TODO<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<div id="parameter-sets-1">
+<section id="section-5.2.1">
+          <h4 id="name-parameter-sets-2">
+<a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-parameter-sets-2" class="section-name selfRef">Parameter sets</a>
+          </h4>
+<p id="section-5.2.1-1">TODO<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="core-operations-1">
+<section id="section-5.3">
+        <h3 id="name-core-operations-2">
+<a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-core-operations-2" class="section-name selfRef">Core Operations</a>
+        </h3>
+<p id="section-5.3-1">TODO<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+<div id="generate-1">
+<section id="section-5.3.1">
+          <h4 id="name-generate-2">
+<a href="#section-5.3.1" class="section-number selfRef">5.3.1. </a><a href="#name-generate-2" class="section-name selfRef">Generate</a>
+          </h4>
+<p id="section-5.3.1-1">TODO<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="sign-1">
+<section id="section-5.3.2">
+          <h4 id="name-sign-2">
+<a href="#section-5.3.2" class="section-number selfRef">5.3.2. </a><a href="#name-sign-2" class="section-name selfRef">Sign</a>
+          </h4>
+<p id="section-5.3.2-1">TODO<a href="#section-5.3.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="verify-1">
+<section id="section-5.3.3">
+          <h4 id="name-verify-2">
+<a href="#section-5.3.3" class="section-number selfRef">5.3.3. </a><a href="#name-verify-2" class="section-name selfRef">Verify</a>
+          </h4>
+<p id="section-5.3.3-1">TODO<a href="#section-5.3.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="using-sphincs-with-jose">
+<section id="section-5.4">
+        <h3 id="name-using-sphincs-with-jose">
+<a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-using-sphincs-with-jose" class="section-name selfRef">Using SPHINCS+ with JOSE</a>
+        </h3>
+<p id="section-5.4-1">Basing off of <a href="https://datatracker.ietf.org/doc/html/rfc8812#section-3">this</a><a href="#section-5.4-1" class="pilcrow">¶</a></p>
+<div id="sphincs-key-representations">
+<section id="section-5.4.1">
+          <h4 id="name-sphincs-key-representations">
+<a href="#section-5.4.1" class="section-number selfRef">5.4.1. </a><a href="#name-sphincs-key-representations" class="section-name selfRef">SPHINCS+ Key Representations</a>
+          </h4>
+<p id="section-5.4.1-1">TODO<a href="#section-5.4.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="sphincs-algorithms">
+<section id="section-5.4.2">
+          <h4 id="name-sphincs-algorithms">
+<a href="#section-5.4.2" class="section-number selfRef">5.4.2. </a><a href="#name-sphincs-algorithms" class="section-name selfRef">SPHINCS+ Algorithms</a>
+          </h4>
+<p id="section-5.4.2-1">TODO<a href="#section-5.4.2-1" class="pilcrow">¶</a></p>
+<div id="public-key-1">
+<section id="section-5.4.2.1">
+            <h5 id="name-public-key-2">
+<a href="#section-5.4.2.1" class="section-number selfRef">5.4.2.1. </a><a href="#name-public-key-2" class="section-name selfRef">Public Key</a>
+            </h5>
+<p id="section-5.4.2.1-1">TODO<a href="#section-5.4.2.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="private-key-1">
+<section id="section-5.4.2.2">
+            <h5 id="name-private-key-2">
+<a href="#section-5.4.2.2" class="section-number selfRef">5.4.2.2. </a><a href="#name-private-key-2" class="section-name selfRef">Private Key</a>
+            </h5>
+<p id="section-5.4.2.2-1">TODO<a href="#section-5.4.2.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="sphincs-signature-representation">
+<section id="section-5.4.3">
+          <h4 id="name-sphincs-signature-represent">
+<a href="#section-5.4.3" class="section-number selfRef">5.4.3. </a><a href="#name-sphincs-signature-represent" class="section-name selfRef">SPHINCS+ Signature Representation</a>
+          </h4>
+<p id="section-5.4.3-1">TODO<a href="#section-5.4.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="security-considerations">
