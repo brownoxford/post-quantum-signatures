@@ -19,7 +19,7 @@ none                                                          M. Prorock
 
 
                JSON Encoding for Post Quantum Signatures
-                  draft-post-quantum-signatures-latest
+           draft-prorock-cose-post-quantum-signatures-latest
 
 Abstract
 
