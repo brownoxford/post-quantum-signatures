@@ -19,7 +19,7 @@ Expires: 27 August 2022                                        Transmute
 
 
                JSON Encoding for Post Quantum Signatures
-             draft-prorock-cose-post-quantum-signatures-00
+           draft-prorock-cose-post-quantum-signatures-latest
 
 Abstract
 
