@@ -2,7 +2,7 @@
 
 
 
-COSE                                                          M. Prorock
+none                                                          M. Prorock
 Internet-Draft                                                  mesur.io
 Intended status: Informational                                 O. Steele
 Expires: 27 August 2022                                        Transmute
