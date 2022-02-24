@@ -5,7 +5,7 @@
 none                                                          M. Prorock
 Internet-Draft                                                  mesur.io
 Intended status: Informational                                 O. Steele
-Expires: 27 August 2022                                        Transmute
+Expires: 28 August 2022                                        Transmute
                                                              R. Misoczki
                                                                   Google
                                                               M. Osborne
@@ -15,7 +15,7 @@ Expires: 27 August 2022                                        Transmute
                                                                      NXP
                                                                  D. Bong
                                                                  Utimaco
-                                                        23 February 2022
+                                                        24 February 2022
 
 
                JSON Encoding for Post Quantum Signatures
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 August 2022.
+   This Internet-Draft will expire on 28 August 2022.
 
 Copyright Notice
 
