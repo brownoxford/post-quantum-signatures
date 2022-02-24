@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-02-22T00:40:56.876602+00:00",
+  "timestamp": "2022-02-24T00:44:14.082757+00:00",
   "repo": "mesur-io/post-quantum-signatures",
   "labels": [
     {
@@ -285,9 +285,9 @@
       "labels": [
         "pre-ietf-submisson"
       ],
-      "body": "- [ ] spec has no more than 5 editors\r\n- [ ] spec editors contact information has been confirmed\r\n- [ ] additional contributors added to the acknowledgement section\r\n\r\n@OR13 can you break apart editors on the top line from the additional contributors per some feedback from IETF folks",
+      "body": "- [ ] spec has no more than 5 editors\r\n- [x] spec editors contact information has been confirmed\r\n- [ ] additional contributors added to the acknowledgement section\r\n\r\n@OR13 can you break apart editors on the top line from the additional contributors per some feedback from IETF folks",
       "createdAt": "2022-01-29T16:04:56Z",
-      "updatedAt": "2022-01-29T16:30:44Z",
+      "updatedAt": "2022-02-23T21:32:50Z",
       "closedAt": null,
       "comments": [
         {
@@ -337,15 +337,15 @@
       "id": "I_kwDOGvW1xs5Cp4s1",
       "title": "Update spec development instructions",
       "url": "https://github.com/mesur-io/post-quantum-signatures/issues/12",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "OR13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "The readme instructions should assist a contributor in setting up, building and previewing local spec changes.\r\n\r\nThe instructions should work in all operating systems, or list the only supported OS.\r\n\r\n",
       "createdAt": "2022-01-29T17:09:20Z",
-      "updatedAt": "2022-02-14T15:51:18Z",
-      "closedAt": null,
+      "updatedAt": "2022-02-23T13:51:58Z",
+      "closedAt": "2022-02-23T13:51:58Z",
       "comments": [
         {
           "author": "OR13",
@@ -498,7 +498,7 @@
       "labels": [],
       "body": "Consider:\r\n\r\n```js\r\nkty: 'PQK',\r\nalg: 'CRYDI',\r\npset: '3',\r\nx: 'mVahKoVifK...'\r\n```\r\n\r\nDo we really want the `pset` value encoded like this?\r\n\r\nJWA / JWK layers are meant to abstract complexity from lower level crypto.\r\n\r\nIMO, we should be registering thing such that you can switch on a single string field...\r\n\r\nWhen you see:\r\n\r\n`crv: 'Ed25519'` ...You know you will be using `alg: EdDSA`.\r\n\r\nWhen you see:\r\n\r\n`crv: 'secp256k1'` ...You know you will be using `alg: ES256K`.\r\n\r\n\r\nWhen you see:\r\n\r\n`crv: 'P256'` ...You know you will be using `alg: ES256`.\r\n\r\nI think we want `alg: 'CRYDI3'` or `pset: 'CRYDI3'`\r\n\r\nBut not both in the JWK.\r\n\r\n",
       "createdAt": "2022-02-06T20:05:20Z",
-      "updatedAt": "2022-02-06T20:13:26Z",
+      "updatedAt": "2022-02-23T21:35:04Z",
       "closedAt": null,
       "comments": [
         {
@@ -507,6 +507,13 @@
           "body": "This issue is also blocking out ability to register multicodecs since we need a single name for the concept of \"crv\" in order to do that.... which in turn blocks possibility of registering a did key representation.",
           "createdAt": "2022-02-06T20:13:02Z",
           "updatedAt": "2022-02-06T20:13:26Z"
+        },
+        {
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "resolved to go alg path, but also allow for pset to express details on parameters.  specifically, `alg` is a MUST, in the form of `alg: 'CRYDI3'` and `pset` is a MAY ",
+          "createdAt": "2022-02-23T21:34:04Z",
+          "updatedAt": "2022-02-23T21:35:04Z"
         }
       ]
     },
@@ -603,15 +610,15 @@
       "id": "I_kwDOGvW1xs5ETnWE",
       "title": "Remove unicode characters from weekly call section",
       "url": "https://github.com/mesur-io/post-quantum-signatures/issues/32",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "brownoxford",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "There are some unicode direction characters embedded into the `Meetings and Collaboration` section which should be removed:\r\n\r\n![Screen Shot 2022-02-21 at 11 13 01 AM](https://user-images.githubusercontent.com/755209/154991940-efc0e99c-98f5-4f11-b1a0-2ea451841035.png)\r\n ",
       "createdAt": "2022-02-21T16:13:33Z",
-      "updatedAt": "2022-02-21T16:13:33Z",
-      "closedAt": null,
+      "updatedAt": "2022-02-23T13:53:46Z",
+      "closedAt": "2022-02-23T13:53:46Z",
       "comments": []
     },
     {
@@ -619,16 +626,89 @@
       "id": "I_kwDOGvW1xs5ETo7A",
       "title": "Remove trailing whitespaces from SPHINCS+ section",
       "url": "https://github.com/mesur-io/post-quantum-signatures/issues/34",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "brownoxford",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Current build process outputs the following:\r\n```\r\ndraft-post-quantum-signatures.md contains trailing whitespace\r\n*** Run 'make fix-lint' to automatically fix some errors\r\n```",
       "createdAt": "2022-02-21T16:19:04Z",
-      "updatedAt": "2022-02-21T16:20:38Z",
-      "closedAt": null,
+      "updatedAt": "2022-02-23T13:52:27Z",
+      "closedAt": "2022-02-23T13:52:27Z",
       "comments": []
+    },
+    {
+      "number": 36,
+      "id": "I_kwDOGvW1xs5Ec9sn",
+      "title": "Rename draft to conform to IETF naming conventions",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/36",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "mprorock"
+      ],
+      "labels": [],
+      "body": "To submit to the COSE working group, the draft name must be of the form `draft-<lastname>-cose-<draftname>`. I'd suggest the identifier `draft-prorock-cose-post-quantum-signatures` or something similar.\r\n\r\nNote that both the filename and the draft name in the markdown need to be changed.  The draft name in the markdown should become  `draft-prorock-cose-post-quantum-signatures-00`.",
+      "createdAt": "2022-02-23T18:34:03Z",
+      "updatedAt": "2022-02-23T20:22:12Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Keeping this open until we shift from `-latest` to `-00` ",
+          "createdAt": "2022-02-23T19:42:01Z",
+          "updatedAt": "2022-02-23T19:42:01Z"
+        },
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We are using https://github.com/martinthomson/i-d-template to manage the editing of this draft, and it requires `-latest` or linting fails.\r\n\r\n@selfissued, is the `-00` suffix a hard requirement instead of `-latest`?",
+          "createdAt": "2022-02-23T20:02:44Z",
+          "updatedAt": "2022-02-23T20:02:44Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "tooling should be handling this automatically.\r\n\r\nSee https://github.com/json-web-proofs/json-web-proofs/blob/main/.github/workflows/publish.yml\r\n\r\nand yes, you don't ask for folks to review `latest` because it changes.... `00` is a requirement.",
+          "createdAt": "2022-02-23T20:21:39Z",
+          "updatedAt": "2022-02-23T20:22:12Z"
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "id": "I_kwDOGvW1xs5Ec-Be",
+      "title": "IETF Copyright Boilerplate Missing",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/issues/37",
+      "state": "CLOSED",
+      "author": "selfissued",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "brownoxford"
+      ],
+      "labels": [],
+      "body": "The required \"Status of this Memo\" and \"Copyright Notice\" sections are missing.  Your Markdown processor should have an option to emit these automatically for you.",
+      "createdAt": "2022-02-23T18:35:39Z",
+      "updatedAt": "2022-02-23T20:05:19Z",
+      "closedAt": "2022-02-23T20:05:19Z",
+      "comments": [
+        {
+          "author": "mprorock",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@brownoxford i may have inadvertently fixed this via pr #39 ",
+          "createdAt": "2022-02-23T19:39:30Z",
+          "updatedAt": "2022-02-23T19:39:30Z"
+        },
+        {
+          "author": "brownoxford",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yes, this appears to have been fixed with #39, closing.",
+          "createdAt": "2022-02-23T20:05:19Z",
+          "updatedAt": "2022-02-23T20:05:19Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -733,7 +813,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2022-01-27T14:41:47Z",
-      "updatedAt": "2022-01-27T14:44:12Z",
+      "updatedAt": "2022-02-23T14:48:27Z",
       "baseRepository": "mesur-io/post-quantum-signatures",
       "baseRefName": "main",
       "baseRefOid": "ee6066acb32ff1207c97321800bc9f69e0bf2f44",
@@ -761,7 +841,7 @@
       "labels": [],
       "body": "Compare to https://datatracker.ietf.org/doc/html/rfc8812\r\n\r\nTheir abstract is very direct... I suggest we follow suite and avoid adding anything other that the `kty` and `alg` names to the abstract.\r\n\r\naddresses https://github.com/mesur-io/post-quantum-signatures/issues/4",
       "createdAt": "2022-01-29T16:47:56Z",
-      "updatedAt": "2022-01-31T20:14:55Z",
+      "updatedAt": "2022-02-23T14:49:22Z",
       "baseRepository": "mesur-io/post-quantum-signatures",
       "baseRefName": "main",
       "baseRefOid": "cf31844f4d38d940224ee3d1ff5863dea2a5429b",
@@ -1196,76 +1276,180 @@
       "id": "PR_kwDOGvW1xs4zPQ-F",
       "title": "docs: update spec development instructions",
       "url": "https://github.com/mesur-io/post-quantum-signatures/pull/31",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "brownoxford",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Add detailed instructions for developers to build formatted versions of the spec locally so that changes can be easily reviewed.\r\n\r\nFIX: #12",
       "createdAt": "2022-02-21T16:12:16Z",
-      "updatedAt": "2022-02-21T16:35:08Z",
+      "updatedAt": "2022-02-23T14:47:05Z",
       "baseRepository": "mesur-io/post-quantum-signatures",
       "baseRefName": "main",
       "baseRefOid": "3397b946d8dab396c6776c09700f432512ddce5a",
       "headRepository": "mesur-io/post-quantum-signatures",
       "headRefName": "fix/12",
       "headRefOid": "642e578be90f65596d32cfd23440119d7004aa42",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2022-02-23T13:51:58Z",
+      "mergedAt": "2022-02-23T13:51:58Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "3e89c9dd5fe06638fd42e5ab0dfcc3ef8c1946e7"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOGvW1xs41Dguc",
+          "commit": {
+            "abbreviatedOid": "642e578"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-02-22T17:14:51Z",
+          "updatedAt": "2022-02-22T17:14:51Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 33,
       "id": "PR_kwDOGvW1xs4zPR8f",
       "title": "docs: remove unprintable unicode characters from spec",
       "url": "https://github.com/mesur-io/post-quantum-signatures/pull/33",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "brownoxford",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Remove alignment characters from spec\r\n\r\nFIX: #32",
       "createdAt": "2022-02-21T16:16:10Z",
-      "updatedAt": "2022-02-21T16:34:50Z",
+      "updatedAt": "2022-02-23T14:47:44Z",
       "baseRepository": "mesur-io/post-quantum-signatures",
       "baseRefName": "main",
-      "baseRefOid": "3397b946d8dab396c6776c09700f432512ddce5a",
+      "baseRefOid": "d3db412e1d396943a914832f729d909ccd20ebbd",
       "headRepository": "mesur-io/post-quantum-signatures",
       "headRefName": "fix/32",
-      "headRefOid": "72af0703f935062c095d6f8a02571fc4293c6bdf",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "ab0488b40b93677dd6d403788a361251f18d61c6",
+      "closedAt": "2022-02-23T13:53:46Z",
+      "mergedAt": "2022-02-23T13:53:46Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "15c9a28361875b34caa30d426b9b26bc598aac5c"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOGvW1xs41DgyI",
+          "commit": {
+            "abbreviatedOid": "72af070"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-02-22T17:15:02Z",
+          "updatedAt": "2022-02-22T17:15:02Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 35,
       "id": "PR_kwDOGvW1xs4zPTRK",
       "title": "docs: remove trailing whitespace in SPHINCS+ section",
       "url": "https://github.com/mesur-io/post-quantum-signatures/pull/35",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "brownoxford",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "FIX: #34",
       "createdAt": "2022-02-21T16:21:39Z",
-      "updatedAt": "2022-02-21T16:22:48Z",
+      "updatedAt": "2022-02-23T14:46:56Z",
       "baseRepository": "mesur-io/post-quantum-signatures",
       "baseRefName": "main",
       "baseRefOid": "3397b946d8dab396c6776c09700f432512ddce5a",
       "headRepository": "mesur-io/post-quantum-signatures",
       "headRefName": "fix/34",
       "headRefOid": "54a28fc13de921b739047cda5f5bd83622e5deca",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2022-02-23T13:52:27Z",
+      "mergedAt": "2022-02-23T13:52:27Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "d3db412e1d396943a914832f729d909ccd20ebbd"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGvW1xs41Dg1t",
+          "commit": {
+            "abbreviatedOid": "54a28fc"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-02-22T17:15:13Z",
+          "updatedAt": "2022-02-22T17:15:13Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "id": "PR_kwDOGvW1xs4zXRZI",
+      "title": "chore: update naming based on feedback from selfissued",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/pull/38",
+      "state": "MERGED",
+      "author": "mprorock",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "addresses #36 ",
+      "createdAt": "2022-02-23T19:09:09Z",
+      "updatedAt": "2022-02-23T19:09:54Z",
+      "baseRepository": "mesur-io/post-quantum-signatures",
+      "baseRefName": "main",
+      "baseRefOid": "15c9a28361875b34caa30d426b9b26bc598aac5c",
+      "headRepository": "mesur-io/post-quantum-signatures",
+      "headRefName": "feature/ietf-naming-cose",
+      "headRefOid": "fde61d04bb84725eb44011ce5213c7168e9ab612",
+      "closedAt": "2022-02-23T19:09:54Z",
+      "mergedAt": "2022-02-23T19:09:54Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "fb1a3dc3a8621abc7273eb57d920edd070ebd0b8"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 39,
+      "id": "PR_kwDOGvW1xs4zXTfO",
+      "title": "Update seriesInfo and keywords",
+      "url": "https://github.com/mesur-io/post-quantum-signatures/pull/39",
+      "state": "MERGED",
+      "author": "mprorock",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-02-23T19:20:18Z",
+      "updatedAt": "2022-02-23T19:38:54Z",
+      "baseRepository": "mesur-io/post-quantum-signatures",
+      "baseRefName": "main",
+      "baseRefOid": "fb1a3dc3a8621abc7273eb57d920edd070ebd0b8",
+      "headRepository": "mesur-io/post-quantum-signatures",
+      "headRefName": "feature/ietf-naming-cose",
+      "headRefOid": "24531f1aabb38f619a3061583de6a8d7db46f5f4",
+      "closedAt": "2022-02-23T19:38:54Z",
+      "mergedAt": "2022-02-23T19:38:54Z",
+      "mergedBy": "mprorock",
+      "mergeCommit": {
+        "oid": "b03b497958225035f83de1594b8226f964127ec1"
+      },
       "comments": [],
       "reviews": []
     }
